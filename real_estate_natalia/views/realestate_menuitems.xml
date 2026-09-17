@@ -6,4 +6,10 @@
         name="Properties"
         parent="realestate_menu_root"
         action="realestate_property_action"/>
+
+    <menuitem
+        id="realestate_menu_visits"
+        name="Visits"
+        parent="realestate_menu_root"
+        action="realestate_visit_action"/>
 </odoo>

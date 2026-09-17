@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="realestate_visit_action" model="ir.actions.act_window">
+        <field name="name">Visits</field>
+        <field name="res_model">realestate.visit</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new visit  
+                </p>
+                <p>
+                    Fill in the details of the visit you want to add, such as the property, visitor, and date.
+                </p>
+        </field>    
+    </record>
+
+    <record id="realestate_visit_list_view" model="ir.ui.view">
+        <field name="name">realestate.visit.list</field>
+        <field name="model">realestate.visit</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="property_id" optional="hide"></field>
+                <field name="date" optional="show"></field>
+                <field name="partner_id" optional="show"></field>
+                <field name="user_id" optional="show"></field>
+                <field name="state" optional="show"></field>
+            </list>
+        </field>
+    </record>
+
+    <record id="realestate_visit_form_view" model="ir.ui.view">
+        <field name="name">realestate.visit.form</field>
+        <field name="model">realestate.visit</field>
+        <field name="arch" type="xml">
+            <form>
+            <header>
+                <field name="state" options="{'clickable':True}" widget="statusbar"></field>
+            </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="property_id"></field>
+                            <field name="user_id"></field>
+                        </group>
+                        <group>
+                            <field name="date"></field>
+                            <field name="partner_id"></field>
+                        </group>                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

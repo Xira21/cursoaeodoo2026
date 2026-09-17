@@ -1,19 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-<record id="realestate_property_action" model="ir.actions.act_window">
-    <field name="name">Properties</field>
-    <field name="res_model">realestate.property</field>
-    <field name="view_mode">list,form</field>
-    <field name="help" type="html">
-              <p class="o_view_nocontent_smiling_face">
-                Create a new property
-              </p>
-              <p>
-                Fill in the details of the property you want to add, such as its name and description.
-              </p>
+  <record id="realestate_property_action" model="ir.actions.act_window">
+      <field name="name">Properties</field>
+      <field name="res_model">realestate.property</field>
+      <field name="view_mode">list,form</field>
+      <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Create a new property
+                </p>
+                <p>
+                  Fill in the details of the property you want to add, such as its name and description.
+                </p>
+      </field>    
+  </record>
+
+  <record id="realestate_property_list_view" model="ir.ui.view">
+    <field name="name">realestate.property.list</field> 
+    <field name="model">realestate.property</field>
+    <field name="arch" type="xml">
+      <list string="Properties" multi_edit="1">
+        <field name="reference" optional="show"></field>
+        <field name="name" optional="show"></field>
+        <field name="description" optional="hide"/>
+        <field name="price" optional="show"></field>
+        <field name="availability" widget="boolean_toggle" optional="show"></field>
+        <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+      </list>
     </field>
-    
-</record>
+  </record>
+
+  <record id="realestate_property_form_view" model="ir.ui.view">
+          <field name="name">realestate.property.form</field>
+          <field name="model">realestate.property</field>
+          <field name="arch" type="xml">
+              <form string="Property">
+                <sheet>
+                  <div class="oe_title">                
+                      <h1>
+                          <field name="name" placeholder="Property Name"/>
+                      </h1>
+                  </div>
+                      <group>   
+                        <group>                          
+                          <field name="reference"></field>      
+                          <field name="price"></field> 
+                        </group>                   
+                        <group> 
+                          <field name="availability" widget="boolean_toggle"></field>                         
+                          <field name="user_id" widget="many2one_avatar_user"></field> 
+                        </group>
+                      </group>
+                      <notebook>
+                        <page string="Information">                       
+                              <field name="description"></field>                     
+                        </page>
+                      </notebook>
+                </sheet>
+              </form>
+          </field>
+  </record>
 
 </odoo>

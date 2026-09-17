@@ -1,0 +1,13 @@
+{
+    "python.defaultInterpreterPath": "/home/odoo/venv/bin/python",
+    "python.analysis.extraPaths": [
+        "/home/odoo/odoo",
+        "/home/odoo/cursoaeodoo2026",
+        "/home/odoo/design-themes",
+        "/home/odoo/OCA/web",
+        "/home/odoo/odoo/addons"
+    ],
+    "odoo.languageServer.pythonPath": "/home/odoo/venv/bin/python",
+    "python.languageServer": "Default",
+    "Odoo.selectedProfile": "default",
+}
