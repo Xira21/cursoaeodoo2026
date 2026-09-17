@@ -35,7 +35,11 @@
           <field name="model">realestate.property</field>
           <field name="arch" type="xml">
               <form string="Property">
+              <header>
+                <button name="action_reserve" string="Reserve" invisible="not availability" type="object" class="btn-primary"></button>
+              </header>
                 <sheet>
+                <widget name="web_ribbon" title ="Reserved" invisible="availability" bg_color="text-bg-warning"></widget>
                   <div class="oe_title">                
                       <h1>
                           <field name="name" placeholder="Property Name"/>

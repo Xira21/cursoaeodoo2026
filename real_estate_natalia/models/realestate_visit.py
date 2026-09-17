@@ -32,3 +32,19 @@ class RealEstateVisit(models.Model):
         string="State",
         default="draft",
     )
+
+    def action_confirm(self):
+        self.ensure_one()
+        self.state = "confirmed"
+
+    def action_done(self):
+        self.ensure_one()
+        self.state = "done"
+
+    def action_cancel(self):
+        self.ensure_one()
+        self.state = "cancelled"
+
+    def action_draft(self):
+        self.ensure_one()
+        self.state = "draft"

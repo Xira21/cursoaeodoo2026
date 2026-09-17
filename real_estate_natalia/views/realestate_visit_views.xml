@@ -34,6 +34,38 @@
         <field name="arch" type="xml">
             <form>
             <header>
+                <button
+                    name="action_draft"
+                    string="Draft"
+                    type="object"
+                    class="btn-secondary"
+                    invisible="state == 'draft'"
+                />
+
+                <button
+                    name="action_confirm"
+                    string="Confirm"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state != 'draft'"
+                />
+
+                <button
+                    name="action_done"
+                    string="Done"
+                    type="object"
+                    class="btn-primary"
+                    invisible="state != 'confirmed'"
+                />
+
+                <button
+                    name="action_cancel"
+                    string="Cancel"
+                    type="object"
+                    class="btn-secondary"
+                    invisible="state == 'done' or state == 'cancelled'"
+                />
+
                 <field name="state" options="{'clickable':True}" widget="statusbar"></field>
             </header>
                 <sheet>
