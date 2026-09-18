@@ -22,6 +22,7 @@
       <list string="Properties" multi_edit="1">
         <field name="reference" optional="show"></field>
         <field name="name" optional="show"></field>
+        <field name="category_id" optional="show"/>
         <field name="description" optional="hide"/>
         <field name="price" optional="show"></field>
         <field name="availability" widget="boolean_toggle" optional="show"></field>
@@ -47,7 +48,8 @@
                   </div>
                       <group>   
                         <group>                          
-                          <field name="reference"></field>      
+                          <field name="reference"></field>
+                          <field name="category_id"/>      
                           <field name="price"></field> 
                         </group>                   
                         <group> 

@@ -39,7 +39,7 @@
                     string="Draft"
                     type="object"
                     class="btn-secondary"
-                    invisible="state == 'draft'"
+                    invisible="state not in ('done','cancelled')"
                 />
 
                 <button
@@ -47,7 +47,7 @@
                     string="Confirm"
                     type="object"
                     class="btn-primary"
-                    invisible="state != 'draft'"
+                    invisible="state in ('confirmed','done','cancelled')"
                 />
 
                 <button
@@ -55,7 +55,7 @@
                     string="Done"
                     type="object"
                     class="btn-primary"
-                    invisible="state != 'confirmed'"
+                    invisible="state in ('draft','done','cancelled')"
                 />
 
                 <button
@@ -63,12 +63,13 @@
                     string="Cancel"
                     type="object"
                     class="btn-secondary"
-                    invisible="state == 'done' or state == 'cancelled'"
+                    invisible="state in ('cancelled')"
                 />
 
                 <field name="state" options="{'clickable':True}" widget="statusbar"></field>
             </header>
-                <sheet>
+                <sheet>                    
+                <widget name="web_ribbon" invisible="state != 'cancelled'" title="Cancelled" bg_color="text-bg-danger"/>
                     <group>
                         <group>
                             <field name="property_id"></field>

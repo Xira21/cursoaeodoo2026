@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="realestate_category_action" model="ir.actions.act_window">
+        <field name="name">Categories</field>
+        <field name="res_model">realestate.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type = "html">
+            <p class = "o_view_nocontent_smiling_face">
+                Create a new category
+            </p>
+            <p>
+                Fill in the details of the category you want to add, such as its name and description.
+            </p>
+        </field>
+    </record>
+
+    <record id="realestate_category_list_view" model="ir.ui.view">
+        <field name="name">realestate.category.list</field>
+        <field name="model">realestate.category</field>
+        <field name="arch" type = "xml">
+            <list>
+                <field name="name" optional = "show"></field>
+                <field name="description" optional = "show"></field>
+            </list>
+        </field>
+    </record>
+
+    <record id="realestate_category_form_view" model="ir.ui.view">
+        <field name="name">realestate.category.form</field>
+        <field name="model">realestate.category</field>
+        <field name="arch" type = "xml">
+            <form string="Category">  
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Category Name"></field>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Information">
+                            <field name="description"></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

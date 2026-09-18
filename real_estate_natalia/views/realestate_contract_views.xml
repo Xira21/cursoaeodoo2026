@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="realestate_contract_action" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">realestate.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new contract
+            </p>
+            <p>
+                Fill in the details of the contract you want to add, such as the property, tenant, dates, and rent.
+            </p>
+        </field>
+    </record>
+
+    <record id="realestate_contract_list_view" model="ir.ui.view">
+        <field name="name">realestate.contract.list</field>
+        <field name="model">realestate.contract</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" optional="show"/>
+                <field name="type" optional="show"/>
+                <field name="property_id" optional="show"/>
+                <field name="partner_id" optional="show"/>
+                <field name="start_date" optional="show"/>
+                <field name="end_date" optional="show"/>
+                <field name="rent" optional="show"/>
+                <field name="state" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="realestate_contract_form_view" model="ir.ui.view">
+        <field name="name">realestate.contract.form</field>
+        <field name="model">realestate.contract</field>
+        <field name="arch" type="xml">
+            <form string="Contract">
+                <header>
+                    <button
+                        name="action_draft"
+                        string="Draft"
+                        type="object"
+                        class="btn-secondary"
+                        invisible="state not in ('done','cancelled')"
+                    />
+
+                    <button
+                        name="action_start"
+                        string="Start"
+                        type="object"
+                        class="btn-primary"
+                        invisible="state != 'draft'"
+                    />
+
+                    <button
+                        name="action_done"
+                        string="Done"
+                        type="object"
+                        class="btn-primary"
+                        invisible="state != 'in_progress'"
+                    />
+
+                    <button
+                        name="action_cancel"
+                        string="Cancel"
+                        type="object"
+                        class="btn-secondary"
+                        invisible="state != 'in_progress'"
+                    />
+
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        options="{'clickable': True}"
+                    />
+                </header>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Contract Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="property_id"/>
+                            <field name="partner_id"/>
+                        </group>
+
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="rent"/>
+                            <field name="deposit"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
