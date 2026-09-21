@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # Odoo
 *.log
@@ -12,3 +13,4 @@ __pycache__/
 
 # Sistema
 .DS_Store
+
