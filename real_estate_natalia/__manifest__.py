@@ -13,7 +13,7 @@
         "views/realestate_visit_views.xml",
         "views/realestate_category_views.xml",
         "views/realestate_offer_views.xml",
-        "views/realestate_contract_views.xml",
+        "views/realestate_contract_views.xml",        
         "views/realestate_menuitems.xml",
     ],
     "license": "LGPL-3",

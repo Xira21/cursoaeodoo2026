@@ -17,6 +17,17 @@ class RealEstateProperty(models.Model):
         comodel_name="realestate.category",
         string="Category",
     )
+
+    stage_id = fields.Many2one(
+        comodel_name ="realestate.property.stage",
+        string="Stage",
+        group_expand="_read_group_stage_ids"
+    )
+
+    color = fields.Integer(string="Color")
     
     def action_reserve(self):
         self.availability = False
+        
+    def _read_group_stage_ids(self, stages, domain):
+        return self.env['realestate.property.stage'].search([], order='sequence')

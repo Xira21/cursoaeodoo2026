@@ -4,7 +4,7 @@
   <record id="realestate_property_action" model="ir.actions.act_window">
       <field name="name">Properties</field>
       <field name="res_model">realestate.property</field>
-      <field name="view_mode">list,form</field>
+      <field name="view_mode">kanban,list,pivot,graph,form</field>
       <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                   Create a new property
@@ -26,6 +26,7 @@
         <field name="description" optional="hide"/>
         <field name="price" optional="show"></field>
         <field name="availability" widget="boolean_toggle" optional="show"></field>
+        <field name="stage_id" optional="show"></field>
         <field name="user_id" widget="many2one_avatar_user" optional="show"/>
       </list>
     </field>
@@ -38,6 +39,7 @@
               <form string="Property">
               <header>
                 <button name="action_reserve" string="Reserve" invisible="not availability" type="object" class="btn-primary"></button>
+                <field name="stage_id" widget="statusbar"></field>
               </header>
                 <sheet>
                 <widget name="web_ribbon" title ="Reserved" invisible="availability" bg_color="text-bg-warning"></widget>
@@ -65,6 +67,80 @@
                 </sheet>
               </form>
           </field>
+  </record>
+    
+  <record id="realestate_property_kanban_view" model="ir.ui.view">
+    <field name="name">realestate.property.kanban</field>
+    <field name="model">realestate.property</field>
+    <field name="arch" type="xml">
+      <kanban highlight_color="color" default_group_by="stage_id" on_create="quick_create" class="o_kanban_small_column">
+        <field name="name"></field>
+        <field name="reference"></field>
+        <field name="category_id"></field>
+        <field name="price"></field>
+        <field name="availability"></field>
+        <field name="user_id"></field>
+        <field name="stage_id"></field>
+        <templates>
+          <t t-name="menu">
+            <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Edit</a></t>
+            <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+            <div role="separator" class="dropdown-divider"/>
+            <field name="color" widget="kanban_color_picker"/>
+          </t>
+          <t t-name="card">
+            <widget name="web_ribbon" title="Reserved" bg_color="text-bg-warning" invisible="availability"/>
+            <field name="name" class="fw-bold fs-5"></field>
+            <field name="reference"></field>
+            <field name="category_id"></field>
+            <footer>
+              <field name="price"></field>
+              <field name="user_id" widget="many2one_avatar_user" class="ms-auto"></field>
+            </footer>
+          </t>        
+        </templates>
+      </kanban>
+    </field>
+  </record>  
+
+  <record id="realestate_property_pivot_view" model="ir.ui.view">
+    <field name="name">realestate.property.pivot</field>
+    <field name="model">realestate.property</field>
+    <field name="arch" type="xml">
+      <pivot>
+        <field name="category_id" type="col"></field>
+        <field name="user_id" type="row"></field>
+        <field name="price" type="measure"></field>        
+      </pivot>
+    </field>
+  </record>
+
+  <record id="realestate_property_graph_view" model="ir.ui.view">
+    <field name="name">realestate.property.graph</field>
+    <field name="model">realestate.property</field>
+    <field name="arch" type="xml">
+      <graph>
+        <field name="category_id" type="col"></field>
+        <field name="user_id" type="row"/>  
+        <field name="price" type="measure"></field>
+      </graph>
+    </field>
+  </record>
+
+  <record id="realestate_property_search_view" model="ir.ui.view">
+    <field name="name">realestate.property.search</field>
+    <field name="model">realestate.property</field>
+    <field name="arch" type="xml">   
+      <search>
+        <field name="name" string="Property" filter_domain="['|',('name','ilike',self),('reference','ilike',self)]"></field>
+        <field name="reference"></field>
+        <field name="category_id"></field>
+        <field name="user_id"></field>
+        <filter name="availability" string="Available" domain="[('availability','=',True)]"></filter>
+        <filter name="reserved" string="Reserved" domain="[('availability','=',False)]"></filter>
+        <filter name="group_by_category" string="Group by Category" context="{'group_by':'category_id'}"/>
+      </search>
+    </field>
   </record>
 
 </odoo>

@@ -31,20 +31,26 @@ class RealEstateVisit(models.Model):
         ],
         string="State",
         default="draft",
+        group_expand="_group_expand_state"
     )
 
+    color = fields.Integer(string="Color")
+
+    def _group_expand_state(self, states, domain):
+        return ["draft", "confirmed", "done", "cancelled"]
+
     def action_confirm(self):
-        self.ensure_one()
+        #self.ensure_one()
         self.state = "confirmed"
 
     def action_done(self):
-        self.ensure_one()
+        #self.ensure_one()
         self.state = "done"
 
     def action_cancel(self):
-        self.ensure_one()
+        #self.ensure_one()
         self.state = "cancelled"
 
     def action_draft(self):
-        self.ensure_one()
+        #self.ensure_one()
         self.state = "draft"

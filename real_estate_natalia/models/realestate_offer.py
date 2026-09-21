@@ -3,6 +3,7 @@ from odoo import models, fields
 class RealEstateOffer(models.Model):
     _name = "realestate.offer"
     _description = "Offer"
+    _rec_name = "partner_id"
 
     property_id = fields.Many2one(
         comodel_name = "realestate.property",
@@ -27,6 +28,8 @@ class RealEstateOffer(models.Model):
         default = "draft",
     )
     notes = fields.Text(string = "Notes")
+    # Tambien podria ser
+    # notes = fields.Html(string = "Notes")
 
     def action_send(self):
         self.state = "sent"
@@ -40,5 +43,9 @@ class RealEstateOffer(models.Model):
 
     def action_draft(self):
         self.state = "draft"
+
+ 
+
+
 
   

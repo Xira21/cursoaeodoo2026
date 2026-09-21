@@ -18,7 +18,7 @@
         <field name="name">realestate.category.list</field>
         <field name="model">realestate.category</field>
         <field name="arch" type = "xml">
-            <list>
+            <list string="Categories">
                 <field name="name" optional = "show"></field>
                 <field name="description" optional = "show"></field>
             </list>
