@@ -36,6 +36,9 @@ class RealEstateVisit(models.Model):
 
     color = fields.Integer(string="Color")
 
+    phone = fields.Char(string="Phone", related='partner_id.phone', readonly=False, store=True)
+    personal_email = fields.Char(string="Personal Email", related='partner_id.email', readonly=False, store=True)
+
     def _group_expand_state(self, states, domain):
         return ["draft", "confirmed", "done", "cancelled"]
 

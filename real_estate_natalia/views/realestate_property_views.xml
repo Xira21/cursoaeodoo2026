@@ -22,7 +22,7 @@
       <list string="Properties" multi_edit="1">
         <field name="reference" optional="show"></field>
         <field name="name" optional="show"></field>
-        <field name="category_id" optional="show"/>
+        <field name="category_id" optional="ppp"/>
         <field name="description" optional="hide"/>
         <field name="price" optional="show"></field>
         <field name="availability" widget="boolean_toggle" optional="show"></field>
@@ -39,6 +39,10 @@
               <form string="Property">
               <header>
                 <button name="action_reserve" string="Reserve" invisible="not availability" type="object" class="btn-primary"></button>
+                <button name="action_create_visit" string="Create Visit" type="object" class="btn-secondary"></button>
+                <button name="action_accept_best_offer" string="Accept Best Offer" class="btn-secondary" type="object"></button>
+                <button name="action_delete_refused_offers" string="Delete Refused Offers" class="btn-danger" type="object"></button>
+                <button name="action_create_offer" string="Create Offer" type="object" class="btn-primary"/>          
                 <field name="stage_id" widget="statusbar"></field>
               </header>
                 <sheet>
@@ -46,7 +50,7 @@
                   <div class="oe_title">                
                       <h1>
                           <field name="name" placeholder="Property Name"/>
-                      </h1>
+                      </h1> 
                   </div>
                       <group>   
                         <group>                          

@@ -22,6 +22,8 @@
                 <field name="property_id" optional="hide"></field>
                 <field name="date" optional="show"></field>
                 <field name="partner_id" optional="show"></field>
+                <field name="phone"></field>
+                <field name="personal_email"></field>
                 <field name="user_id" optional="show"></field>
                 <field name="state" optional="show"></field>
             </list>
@@ -78,6 +80,8 @@
                         <group>
                             <field name="date"></field>
                             <field name="partner_id"></field>
+                            <field name="phone"></field>
+                            <field name="personal_email"></field>
                         </group>                        
                     </group>
                 </sheet>

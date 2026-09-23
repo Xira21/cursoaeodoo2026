@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-21 20:02+0000\n"
-"PO-Revision-Date: 2026-09-21 20:02+0000\n"
+"POT-Creation-Date: 2026-09-23 11:26+0000\n"
+"PO-Revision-Date: 2026-09-23 11:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_contract_form_view
+msgid "# Añado 2 Campos calculados"
+msgstr "# Añado 2 Campos calculados"
+
+#. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_form_view
 msgid "Accept"
 msgstr "Aceptar"
 
 #. module: real_estate_natalia
-#: model:ir.rule,name:real_estate_natalia.real_estate_rule_manager
-msgid "All Properties"
-msgstr "Todas las propiedades"
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+msgid "Accept Best Offer"
+msgstr "Aceptar mejor oferta"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields.selection,name:real_estate_natalia.selection__realestate_offer__state__accepted
@@ -124,6 +129,16 @@ msgid "Contracts"
 msgstr "Contratos"
 
 #. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+msgid "Create Offer"
+msgstr "Crear oferta"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+msgid "Create Visit"
+msgstr "Crear visita"
+
+#. module: real_estate_natalia
 #: model_terms:ir.actions.act_window,help:real_estate_natalia.realestate_category_action
 msgid "Create a new category"
 msgstr "Crear una nueva categoría"
@@ -174,10 +189,25 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__days_in_progress
+msgid "Days in Progress"
+msgstr "Días en progreso"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__days_to_end
+msgid "Days to End"
+msgstr "Días hasta el fin"
+
+#. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_kanban_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_kanban_view
 msgid "Delete"
 msgstr "Eliminar"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+msgid "Delete Refused Offers"
+msgstr "Eliminar ofertas rechazadas"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__deposit
@@ -219,6 +249,11 @@ msgstr "Realizado"
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_search_view
 msgid "Draft"
 msgstr "Borrador"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__duration_days
+msgid "Duration (Days)"
+msgstr "Duración (días)"
 
 #. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_kanban_view
@@ -280,6 +315,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_search_view
 msgid "Group by Category"
 msgstr "Agrupar por categoría"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__has_deposit
+msgid "Has Deposit"
+msgstr "Tiene depósito"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_category__id
@@ -354,9 +394,14 @@ msgid "Offers"
 msgstr "Ofertas"
 
 #. module: real_estate_natalia
-#: model:ir.rule,name:real_estate_natalia.real_estate_rule_user
-msgid "Personal Properties"
-msgstr "Propiedades personales"
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__personal_email
+msgid "Personal Email"
+msgstr "Correo personal"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__phone
+msgid "Phone"
+msgstr "Teléfono"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__price
