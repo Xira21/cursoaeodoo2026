@@ -10,4 +10,5 @@
     "odoo.languageServer.pythonPath": "/home/odoo/venv/bin/python",
     "python.languageServer": "Default",
     "Odoo.selectedProfile": "default",
+    "emmet.useInlineCompletions": true,
 }

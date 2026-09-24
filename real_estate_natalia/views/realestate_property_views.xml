@@ -67,6 +67,31 @@
                         <page string="Information">                       
                               <field name="description"></field>                     
                         </page>
+                        <page string="Images">
+                          <field name="image_ids" context="{'default_name': 'Image'}">
+                            <list editable="bottom">
+                              <field name="sequence" widget="handle"></field>
+                              <field name="name"></field>
+                              <field name="image" widget="image"></field>
+                            </list>
+                          </field>
+                        </page>
+                        <page string="Visits">
+                          <field name="visit_ids" context="{'list_view_ref':'real_estate_natalia.realestate_visit_list_simple_view','default_user_id':user_id}"></field>
+                        </page>
+                        <page string="Incidents">
+                          <field name="incident_ids" context="{'default_user_id': user_id}">
+                            <list editable="bottom">  
+                              <field name="sequence" widget="handle"/>
+                              <field name="name"/>
+                              <field name="description"/>
+                              <field name="priority" widget="priority"/>
+                              <field name="state" decoration-info="state=='new'" decoration-warning="state=='in_progress'" decoration-success="state=='resolved'" decoration-danger="state=='cancelled'"/>
+                              <field name="date"/>
+                              <field name="user_id" options="{'no_create': True, 'no_open': True}" domain="[('share', '=', False)]" widget="many2one_avatar_user"></field>
+                            </list>    
+                          </field>                    
+                        </page>
                       </notebook>
                 </sheet>
               </form>

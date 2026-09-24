@@ -30,6 +30,19 @@
         </field>
     </record>
 
+    <record id="realestate_visit_list_simple_view" model="ir.ui.view">
+        <field name="name">realestate.visit.list.simple</field>
+        <field name="model">realestate.visit</field>
+        <field name="priority" eval="99"></field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="partner_id" options="{'no_quick_create':True}" optional="show"></field>
+                <field name="user_id" domain="[('share','=',False)]" options="{'no_create':True, 'no_open':True}" optional="show"></field>
+                <field name="state" decoration-info="state=='draft'" decoration-success="state=='done'" decoration-danger="state=='cancelled'" widget="badge" optional="show"></field>
+            </list>
+        </field>
+    </record>
+
     <record id="realestate_visit_form_view" model="ir.ui.view">
         <field name="name">realestate.visit.form</field>
         <field name="model">realestate.visit</field>
@@ -74,7 +87,7 @@
                 <widget name="web_ribbon" invisible="state != 'cancelled'" title="Cancelled" bg_color="text-bg-danger"/>
                     <group>
                         <group>
-                            <field name="property_id"></field>
+                            <field name="property_id" options="{'no_create': True, 'no_open': True}"></field>
                             <field name="user_id"></field>
                         </group>
                         <group>

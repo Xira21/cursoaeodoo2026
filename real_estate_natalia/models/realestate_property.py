@@ -24,6 +24,24 @@ class RealEstateProperty(models.Model):
         group_expand="_read_group_stage_ids"
     )
 
+    image_ids = fields.One2many(
+        comodel_name ="realestate.property.image",
+        inverse_name ="property_id",
+        string="Images"
+    )
+
+    visit_ids = fields.One2many(
+        comodel_name="realestate.visit",
+        inverse_name="property_id",
+        string="Visits"
+    )
+
+    incident_ids = fields.One2many(
+        comodel_name = "realestate.property.incident",
+        inverse_name = "property_id",
+        string = "Incidents"
+    )
+
     color = fields.Integer(string="Color")
     
     def action_reserve(self):
