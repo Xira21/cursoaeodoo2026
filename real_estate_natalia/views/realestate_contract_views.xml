@@ -90,8 +90,8 @@
                     <group>
                         <group>
                             <field name="contract_type"/>
-                            <field name="property_id"/>
-                            <field name="partner_id"/>
+                            <field name="property_id" domain="[('availability', '=', False)]"/>
+                            <field name="partner_id" options="{'no_create': True}"/>
                         </group>
 
                         <group>

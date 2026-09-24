@@ -43,6 +43,7 @@
                 <button name="action_accept_best_offer" string="Accept Best Offer" class="btn-secondary" type="object"></button>
                 <button name="action_delete_refused_offers" string="Delete Refused Offers" class="btn-danger" type="object"></button>
                 <button name="action_create_offer" string="Create Offer" type="object" class="btn-primary"/>          
+                <button name="action_cancel_visits" string="Cancel Visits" type="object" class="btn-danger"/>
                 <field name="stage_id" widget="statusbar"></field>
               </header>
                 <sheet>
@@ -61,6 +62,7 @@
                         <group> 
                           <field name="availability" widget="boolean_toggle"></field>                         
                           <field name="user_id" widget="many2one_avatar_user"></field> 
+                          <field name="next_visit_date"></field>                        
                         </group>
                       </group>
                       <notebook>
@@ -92,6 +94,16 @@
                             </list>    
                           </field>                    
                         </page>
+                        <page string="Offers">
+                          <field name="offer_ids" context="{'default_property_id': id}">
+                            <list editable="bottom">                               
+                              <field name="partner_id"/>
+                              <field name="amount"/>
+                              <field name="state" decoration-info="state=='new'" decoration-warning="state=='accepted'" decoration-success="state=='refused'"/>
+                              <field name="date"/>                        
+                            </list>    
+                          </field>
+                        </page>  
                       </notebook>
                 </sheet>
               </form>

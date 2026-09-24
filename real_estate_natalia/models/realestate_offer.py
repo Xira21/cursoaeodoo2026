@@ -26,7 +26,16 @@ class RealEstateOffer(models.Model):
         string = "State",
         default = "draft",
     )
+
+    category_id = fields.Many2one(
+        comodel_name = "realestate.category",
+        string = "Category",
+        related='property_id.category_id',
+        readonly=True
+    )
+
     notes = fields.Text(string = "Notes")
+    color = fields.Integer(string="Color")
     # Tambien podria ser
     # notes = fields.Html(string = "Notes")
 
@@ -42,6 +51,20 @@ class RealEstateOffer(models.Model):
 
     def action_draft(self):
         self.state = "draft"
+
+    def action_create_contract(self):
+        for offer in self:
+            self.env["realestate.contract"].create({
+                'property_id': offer.property_id.id,
+                'partner_id': offer.partner_id.id,
+                'contract_type': "sale",
+                'start_date': fields.Date.today(),
+            })
+                
+            
+                
+            
+            
 
  
 

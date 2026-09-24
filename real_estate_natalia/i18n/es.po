@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-24 10:47+0000\n"
-"PO-Revision-Date: 2026-09-24 10:47+0000\n"
+"POT-Creation-Date: 2026-09-24 15:47+0000\n"
+"PO-Revision-Date: 2026-09-24 15:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,7 @@ msgstr "Aceptar mejor oferta"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields.selection,name:real_estate_natalia.selection__realestate_offer__state__accepted
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
 msgid "Accepted"
 msgstr "Aceptado"
 
@@ -55,6 +56,11 @@ msgstr "Comprador"
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_form_view
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+msgid "Cancel Visits"
+msgstr "Cancelar visitas"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields.selection,name:real_estate_natalia.selection__realestate_contract__state__cancelled
@@ -86,6 +92,7 @@ msgid "Category Name"
 msgstr "Nombre de la categoría"
 
 #. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__color
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__color
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__color
 msgid "Color"
@@ -123,6 +130,11 @@ msgstr "Tipo de contrato"
 #: model:ir.ui.menu,name:real_estate_natalia.realestate_menu_contracts
 msgid "Contracts"
 msgstr "Contratos"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_form_view
+msgid "Create Contract"
+msgstr "Crear contrato"
 
 #. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
@@ -200,6 +212,7 @@ msgid "Days to End"
 msgstr "Días hasta el fin"
 
 #. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_kanban_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_kanban_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_kanban_view
 msgid "Delete"
@@ -260,6 +273,7 @@ msgid "Duration (Days)"
 msgstr "Duración (días)"
 
 #. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_kanban_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_kanban_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_kanban_view
 msgid "Edit"
@@ -340,7 +354,7 @@ msgstr "Alta"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__image
@@ -425,6 +439,11 @@ msgid "New"
 msgstr "Nuevo"
 
 #. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__next_visit_date
+msgid "Next Visit Date"
+msgstr "Fecha de la próxima visita"
+
+#. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__notes
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_form_view
 msgid "Notes"
@@ -438,8 +457,11 @@ msgstr "Oferta"
 
 #. module: real_estate_natalia
 #: model:ir.actions.act_window,name:real_estate_natalia.realestate_offer_action
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__offer_ids
 #: model:ir.ui.menu,name:real_estate_natalia.realestate_menu_offers
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_calendar_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
 msgid "Offers"
 msgstr "Ofertas"
 
@@ -574,6 +596,7 @@ msgstr "Enviar"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields.selection,name:real_estate_natalia.selection__realestate_offer__state__sent
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
 msgid "Sent"
 msgstr "Enviado"
 
@@ -656,3 +679,18 @@ msgstr "Visitante"
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_search_view
 msgid "Visits"
 msgstr "Visitas"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__category_id
+msgid "category"
+msgstr "Categoría"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
+msgid "group_by_property"
+msgstr "Agrupar por propiedad"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
+msgid "rejected"
+msgstr "Rechazadas"

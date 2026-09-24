@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class RealEstateProperty(models.Model):
     _name = "realestate.property"
@@ -42,6 +42,17 @@ class RealEstateProperty(models.Model):
         string = "Incidents"
     )
 
+    offer_ids = fields.One2many(
+        comodel_name = "realestate.offer",
+        inverse_name = "property_id",
+        string = "Offers"
+    )
+
+    next_visit_date = fields.Datetime(
+        string ="Next Visit Date",
+        compute="_compute_next_visit_date"
+    )
+
     color = fields.Integer(string="Color")
     
     def action_reserve(self):
@@ -80,6 +91,29 @@ class RealEstateProperty(models.Model):
         }
         offer = self.env['realestate.offer'].create(vals)
         offer.action_send()
+    
+    @api.depends("visit_ids.date", "visit_ids.state")
+    def _compute_next_visit_date(self):
+        for property in self:
+            visits = property.visit_ids.filtered(
+                lambda visit: visit.state == 'confirmed'
+                and visit.date > fields.Datetime.now()
+            ).sorted(key=lambda v: v.date)
+            property.next_visit_date = visits[0].date if visits else False
+
+    # Botón que cancele todas las visitas en borrador o planificadas
+    def action_cancel_visits(self):     
+        visits = self.env["realestate.visit"].search([
+            ("property_id", "in", self.ids),
+            ("state", "in", ["draft", "confirmed"]),
+        ])
+        visits.write({"state": "cancelled"})
+
+        #Otra forma de hacerlo:
+        """for property in self:
+            for visit in property.visit_ids:
+                if visit.state in ("draft", "confirmed"):
+                    visit.action_cancel()"""
         
     
 
