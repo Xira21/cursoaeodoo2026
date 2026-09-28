@@ -21,6 +21,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="property_id" optional="show"/>
+                <field name="category_id" optional="show"/>
                 <field name="partner_id" optional="show"/>
                 <field name="amount" optional="show"/>
                 <field name="date" optional="show"/>
@@ -139,12 +140,10 @@
                     </t>
                     <t t-name="card">
                         <field name="property_id" class="fw-bold fs-5"/>
-                        <footer>
-                            <field name="amount"/>
-                            <div class="text-muted">
-                                <field name="partner_id"/>
-                                <field name="date"/>
-                            </div>
+                        <field name="amount"/>
+                        <field name="date"/>
+                        <footer>                      
+                           <field name="partner_id"/>                              
                         </footer>
                     </t>
                 </templates>
@@ -185,7 +184,7 @@
                 <filter name="sent" string="Sent" domain="[('state', '=', 'sent')]"/>
                 <filter name="accepted" string="Accepted" domain="[('state', '=', 'accepted')]"/>
                 <filter name="rejected" string="Rejected" domain="[('state', '=', 'rejected')]"/>
-                <filter name="group_by_property" string="group_by_property" context="{'group_by': 'property_id'}"/>
+                <filter name="group_by_property" string="Property" context="{'group_by': 'property_id'}"/>
             </search>
         </field>
     </record>

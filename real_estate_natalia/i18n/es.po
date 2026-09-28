@@ -81,6 +81,7 @@ msgstr "Categorías"
 
 #. module: real_estate_natalia
 #: model:ir.model,name:real_estate_natalia.model_realestate_category
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__category_id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__category_id
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_category_form_view
 msgid "Category"
@@ -499,6 +500,7 @@ msgstr "Propiedades"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__property_id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__property_id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__property_id
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_search_view
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_search_view
@@ -679,16 +681,6 @@ msgstr "Visitante"
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_search_view
 msgid "Visits"
 msgstr "Visitas"
-
-#. module: real_estate_natalia
-#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__category_id
-msgid "category"
-msgstr "Categoría"
-
-#. module: real_estate_natalia
-#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
-msgid "group_by_property"
-msgstr "Agrupar por propiedad"
 
 #. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view

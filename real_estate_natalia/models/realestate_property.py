@@ -94,12 +94,14 @@ class RealEstateProperty(models.Model):
     
     @api.depends("visit_ids.date", "visit_ids.state")
     def _compute_next_visit_date(self):
-        for property in self:
-            visits = property.visit_ids.filtered(
+        for record in self:
+            visits = record.visit_ids.filtered(
                 lambda visit: visit.state == 'confirmed'
+                and visit.date
                 and visit.date > fields.Datetime.now()
-            ).sorted(key=lambda v: v.date)
-            property.next_visit_date = visits[0].date if visits else False
+            )
+            visit_dates = visits.mapped('date')
+            record.next_visit_date = min(visit_dates) if visit_dates else False
 
     # Botón que cancele todas las visitas en borrador o planificadas
     def action_cancel_visits(self):     
@@ -110,8 +112,8 @@ class RealEstateProperty(models.Model):
         visits.write({"state": "cancelled"})
 
         #Otra forma de hacerlo:
-        """for property in self:
-            for visit in property.visit_ids:
+        """for record in self:
+            for visit in record.visit_ids:
                 if visit.state in ("draft", "confirmed"):
                     visit.action_cancel()"""
         

@@ -31,7 +31,7 @@ class RealEstateOffer(models.Model):
         comodel_name = "realestate.category",
         string = "Category",
         related='property_id.category_id',
-        readonly=True
+        store=True,
     )
 
     notes = fields.Text(string = "Notes")
@@ -59,6 +59,7 @@ class RealEstateOffer(models.Model):
                 'partner_id': offer.partner_id.id,
                 'contract_type': "sale",
                 'start_date': fields.Date.today(),
+                'name': f"Contrato {offer.property_id.name}",
             })
                 
             

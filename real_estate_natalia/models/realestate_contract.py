@@ -4,7 +4,7 @@ class RealEstateContract(models.Model):
     _name = "realestate.contract"
     _description = "Contract"
 
-    name = fields.Char(string = "Name", required=True)
+    name = fields.Char(string = "Name")
     contract_type = fields.Selection(
         selection = [
             ("rental", "Rental"),

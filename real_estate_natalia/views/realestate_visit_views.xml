@@ -36,6 +36,7 @@
         <field name="priority" eval="99"></field>
         <field name="arch" type="xml">
             <list editable="bottom">
+                <field name="date"></field>
                 <field name="partner_id" options="{'no_quick_create':True}" optional="show"></field>
                 <field name="user_id" domain="[('share','=',False)]" options="{'no_create':True, 'no_open':True}" optional="show"></field>
                 <field name="state" decoration-info="state=='draft'" decoration-success="state=='done'" decoration-danger="state=='cancelled'" widget="badge" optional="show"></field>
