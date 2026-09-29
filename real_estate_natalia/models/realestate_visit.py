@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class RealEstateVisit(models.Model):
     _name = "realestate.visit"
@@ -10,7 +10,8 @@ class RealEstateVisit(models.Model):
         string="Property",
         required=True,
     )
-    date = fields.Datetime(string="Visit Date")
+    # Cuando se cree una visita, que la fecha por defecto sea la de ahora  
+    date = fields.Datetime(string="Visit Date", default=fields.Datetime.now)
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -36,8 +37,21 @@ class RealEstateVisit(models.Model):
 
     color = fields.Integer(string="Color")
 
-    phone = fields.Char(string="Phone", related='partner_id.phone', readonly=False, store=True)
-    personal_email = fields.Char(string="Personal Email", related='partner_id.email', readonly=False, store=True)
+    phone = fields.Char(string="Phone")
+    personal_email = fields.Char(string="Personal Email")
+
+    # En la visita, cambiar el teléfono y el email: quitar el related 
+    # y añadir un onchange para que cuando se cambie el contacto se traigan el teléfono y el email.
+
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.phone = self.partner_id.phone
+            self.personal_email = self.partner_id.email
+        else:
+            self.phone = False
+            self.personal_email = False
+
 
     def _group_expand_state(self, states, domain):
         return ["draft", "confirmed", "done", "cancelled"]
@@ -57,3 +71,12 @@ class RealEstateVisit(models.Model):
     def action_draft(self):
         #self.ensure_one()
         self.state = "draft"
+    
+    # para el cron
+    @api.model
+    def _cron_done_visits(self):
+        visits = self.env['realestate.visit'].search(
+            [('date', '<', fields.Datetime.now()),
+            ('state', '=', 'confirmed')])
+        
+        visits.action_done()

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-24 15:47+0000\n"
-"PO-Revision-Date: 2026-09-24 15:47+0000\n"
+"POT-Creation-Date: 2026-09-29 11:41+0000\n"
+"PO-Revision-Date: 2026-09-29 11:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -355,7 +355,7 @@ msgstr "Alta"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__image
@@ -373,6 +373,11 @@ msgstr "Imágenes"
 #: model:ir.model.fields.selection,name:real_estate_natalia.selection__realestate_property_incident__state__in_progress
 msgid "In Progress"
 msgstr "En progreso"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__incident_count
+msgid "Incident Count"
+msgstr "Número de incidencias"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__incident_ids
@@ -545,6 +550,16 @@ msgid "Real Estate User Group"
 msgstr "Grupo de usuarios inmobiliarios"
 
 #. module: real_estate_natalia
+#: model:ir.actions.server,name:real_estate_natalia.realestate_visit_done_cron_ir_actions_server
+msgid "Real Estate: done visits with date passed"
+msgstr "Inmobiliaria: finalizar visitas con fecha pasada"
+
+#. module: real_estate_natalia
+#: model:ir.actions.server,name:real_estate_natalia.realestate_contract_finish_cron_ir_actions_server
+msgid "Real Estate: finish contracts with end date passed"
+msgstr "Inmobiliaria: finalizar contratos con fecha de fin pasada"
+
+#. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__reference
 msgid "Reference"
 msgstr "Referencia"
@@ -556,6 +571,7 @@ msgstr "Rechazar"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields.selection,name:real_estate_natalia.selection__realestate_offer__state__rejected
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
 msgid "Rejected"
 msgstr "Rechazado"
 
@@ -644,6 +660,28 @@ msgid "Tenant"
 msgstr "Inquilino"
 
 #. module: real_estate_natalia
+#: model:ir.model.constraint,message:real_estate_natalia.constraint_realestate_contract_name_unique
+msgid "The contract name must be unique."
+msgstr "El nombre del contrato debe ser único."
+
+#. module: real_estate_natalia
+#. odoo-python
+#: code:addons/real_estate_natalia/models/realestate_contract.py:0
+msgid "The end date cannot be earlier than the start date."
+msgstr "La fecha de fin no puede ser anterior a la fecha de inicio."
+
+#. module: real_estate_natalia
+#. odoo-python
+#: code:addons/real_estate_natalia/models/realestate_offer.py:0
+msgid "The offer amount cannot be negative"
+msgstr "El importe de la oferta no puede ser negativo"
+
+#. module: real_estate_natalia
+#: model:ir.model.constraint,message:real_estate_natalia.constraint_realestate_property_reference_unique
+msgid "The property reference must be unique."
+msgstr "La referencia de la propiedad debe ser única."
+
+#. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__user_id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__user_id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__user_id
@@ -661,6 +699,11 @@ msgstr "Muy alta"
 #: model:ir.model,name:real_estate_natalia.model_realestate_visit
 msgid "Visit"
 msgstr "Visita"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__visit_count
+msgid "Visit Count"
+msgstr "Número de visitas"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__date
@@ -681,8 +724,3 @@ msgstr "Visitante"
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_search_view
 msgid "Visits"
 msgstr "Visitas"
-
-#. module: real_estate_natalia
-#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_offer_search_view
-msgid "rejected"
-msgstr "Rechazadas"

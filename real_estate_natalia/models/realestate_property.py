@@ -12,6 +12,8 @@ class RealEstateProperty(models.Model):
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="User",
+        # La propiedad cuando se cree que tenga un usuario asignado
+        default= lambda self: self.env.user.id
     )
     category_id = fields.Many2one(
         comodel_name="realestate.category",
@@ -55,6 +57,54 @@ class RealEstateProperty(models.Model):
 
     color = fields.Integer(string="Color")
     
+    # Añade restricción SQL en la que la referencia de la propiedad sea única.
+    _reference_unique = models.Constraint(
+        'unique(reference)',
+        'The property reference must be unique.'
+    )
+
+    # Hacer un smartbutton para que en la propiedad aparezcan las visitas asociadas a esa propiedad.
+    visit_count = fields.Integer(string ="Visit Count", compute="_compute_visit_count")
+
+    # Hacer un smartbutton para que en la propiedad aparezcan las incidencias asociadas.
+    incident_count = fields.Integer(string="Incident Count", compute="_compute_incident_count")
+
+    @api.depends('visit_ids') 
+    def _compute_visit_count(self):
+        for record in  self:
+            record.visit_count = len(record.visit_ids)
+    
+    def action_view_visits(self):
+        self.ensure_one()
+        return{
+            'type': 'ir.actions.act_window',
+            'name': 'Visits',
+            'res_model': 'realestate.visit',
+            'view_mode': 'list,form',
+            'domain': [('property_id', '=', self.id)],
+            'context': {'default_property_id': self.id}
+        }
+
+    @api.depends('incident_ids')
+    def _compute_incident_count(self):
+        for record in self:
+            record.incident_count = len(record.incident_ids)
+    
+    def action_view_incidents(self):
+        self.ensure_one()
+        return{
+            'type': 'ir.actions.act_window',
+            'name': 'Incidents',
+            'res_model': 'realestate.property.incident',
+            'view_mode': 'list,form',
+            'domain': [('property_id', '=', self.id)],
+            'context': {'default_property_id': self.id}
+        }
+    
+    
+
+
+
     def action_reserve(self):
         self.availability = False
         

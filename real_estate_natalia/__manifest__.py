@@ -7,6 +7,7 @@
     "category": "Real Estate",
     "depends": ["base"],
     "data": [
+        "data/ir.cron.xml",
         "security/real_estate_security.xml",
         "security/ir.model.access.csv",
         "views/realestate_property_views.xml",

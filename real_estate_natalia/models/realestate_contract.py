@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 class RealEstateContract(models.Model):
     _name = "realestate.contract"
@@ -26,7 +27,14 @@ class RealEstateContract(models.Model):
         required=True,
     )
 
-    start_date = fields.Date(string ="Start Date")
+    # Restricción SQL en el nombre del contrato, que sea único.
+    _name_unique = models.Constraint(
+        'unique(name)',
+        'The contract name must be unique.'
+    )
+
+    # Cuando se cree un contrato que se ponga la fecha de hoy como fecha de inicio.
+    start_date = fields.Date(string ="Start Date", default= fields.Date.context_today)
     end_date = fields.Date(string ="End Date")
 
     rent = fields.Float(string="Rent")
@@ -98,4 +106,34 @@ class RealEstateContract(models.Model):
 
     def action_draft(self):
         self.state = "draft"
+
+    # para el cron
+    @api.model
+    def _cron_finish_contracts(self):
+        contracts = self.env['realestate.contract'].search(
+            [('end_date', '<', fields.Date.today()),
+            ('state', '=', 'in_progress')])
+        
+        #contracts.write({'state': 'done'})
+        contracts.action_done()
+
+    # Añadir una constraint en el contrato que impida que la fecha de fin
+    # sea anterior a la fecha de inicio
+
+    @api.constrains('end_date', 'start_date')
+    def _check_end_date(self):
+        for record in self:
+            if record.end_date and record.start_date and record.end_date < record.start_date:
+                raise ValidationError(_("The end date cannot be earlier than the start date."))
+
+    # Un onchange en el contrato, al elegir la propiedad, que el alquiler
+    # se rellene con el precio de la propiedad.
+
+    @api.onchange('property_id')
+    def _onchange_property_id(self):
+        if self.property_id:            
+            self.rent = self.property_id.price
+        else:
+            self.rent = 0
+
 

@@ -48,6 +48,14 @@
                 <field name="stage_id" widget="statusbar"></field>
               </header>
                 <sheet>
+                <div class="oe_button_box" name="button_box">
+                  <button name="action_view_visits" type="object" class="oe_stat_button" icon="fa-calendar">
+                    <field name="visit_count" widget="statinfo" string="Visits"></field>
+                  </button>
+                  <button name="action_view_incidents" type="object" class="oe_stat_button" icon="fa-wrench">
+                    <field name="incident_count" widget="statinfo" string="Incidents"></field>
+                  </button>
+                </div>
                 <widget name="web_ribbon" title ="Reserved" invisible="availability" bg_color="text-bg-warning"></widget>
                   <div class="oe_title">                
                       <h1>
