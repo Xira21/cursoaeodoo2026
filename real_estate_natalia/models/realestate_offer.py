@@ -15,7 +15,13 @@ class RealEstateOffer(models.Model):
         comodel_name = "res.partner",
         string = "Buyer",        
     )
-    amount = fields.Float(string = "Amount")
+    amount = fields.Monetary(string = "Amount", currency_field='currency_id')
+
+    currency_id = fields.Many2one(
+        comodel_name="res.currency",
+        string="Currency",
+        related= 'property_id.currency_id'
+    )
     date = fields.Datetime(string = "Date")
     state = fields.Selection(
         selection=[

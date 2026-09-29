@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="realestate_property_change_stage_action" model="ir.actions.act_window">
+        <field name="name">Change Property Stage</field>
+        <field name="res_model">realestate.property.change.stage</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>        
+        <field name="binding_model_id" ref="real_estate_natalia.model_realestate_property"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <record id="realestate_property_change_stage_form_view" model="ir.ui.view">
+        <field name="name">realestate.property.change.stage.form</field>
+        <field name="model">realestate.property.change.stage</field>
+        <field name="arch" type="xml">
+            <form string="Change Property Stage">
+                <group>
+                    <field name="stage_id"></field>    
+                </group>                    
+                <footer>
+                    <button string="Change Stage" name="action_change_stage" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

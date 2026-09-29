@@ -6,9 +6,18 @@ class RealEstateProperty(models.Model):
 
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")
-    price = fields.Float(string="Price")
-    reference = fields.Char(string="Reference")
+
+    price = fields.Monetary(string="Price", currency_field='currency_id')
+    currency_id = fields.Many2one(
+        comodel_name="res.currency",
+        string="Currency",
+        default = lambda self: self.env.company.currency_id.id
+    )
+
+    reference = fields.Char(string="Reference", copy=False)
     availability = fields.Boolean(string="Availability", default=True)
+    active = fields.Boolean(string="Active", default=True)    
+
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="User",
@@ -56,6 +65,14 @@ class RealEstateProperty(models.Model):
     )
 
     color = fields.Integer(string="Color")
+
+    company_id = fields.Many2one(
+        comodel_name="res.company",
+        string="Company",
+        default= lambda self: self.env.company.id
+    )
+
+    internal_note = fields.Text(string="Internal Note", company_dependent=True)
     
     # Añade restricción SQL en la que la referencia de la propiedad sea única.
     _reference_unique = models.Constraint(

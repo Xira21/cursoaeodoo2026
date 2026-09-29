@@ -5,7 +5,7 @@ class RealEstateContract(models.Model):
     _name = "realestate.contract"
     _description = "Contract"
 
-    name = fields.Char(string = "Name")
+    name = fields.Char(string = "Name", copy=False)
     contract_type = fields.Selection(
         selection = [
             ("rental", "Rental"),
@@ -37,8 +37,14 @@ class RealEstateContract(models.Model):
     start_date = fields.Date(string ="Start Date", default= fields.Date.context_today)
     end_date = fields.Date(string ="End Date")
 
-    rent = fields.Float(string="Rent")
-    deposit = fields.Float(string="Deposit")
+    rent = fields.Monetary(string="Rent", currency_field='currency_id')
+    deposit = fields.Monetary(string="Deposit", currency_field='currency_id')
+
+    currency_id = fields.Many2one(
+        comodel_name="res.currency",
+        string="Currency",
+        related= 'property_id.currency_id'
+    )
 
     state = fields.Selection(
         selection=[
