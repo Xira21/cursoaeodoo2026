@@ -191,6 +191,8 @@ class RealEstateProperty(models.Model):
                 if visit.state in ("draft", "confirmed"):
                     visit.action_cancel()"""
         
-    
+    # Para poner un botón de imprimir
+    # def action_print_property(self):
+    #     return self.env.ref('real_estate_natalia.action_report_realestate_property').report_action(self.ids)
 
           

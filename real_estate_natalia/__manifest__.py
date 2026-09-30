@@ -17,7 +17,10 @@
         "views/realestate_contract_views.xml",        
         "views/realestate_menuitems.xml",
         "wizard/realestate_property_change_stage.xml",
-        "wizard/realestate_property_confirmed_visits.xml"
+        "wizard/realestate_property_confirmed_visits.xml",
+        "report/realestate_property_report.xml",
+        "report/realestate_property_simple_report.xml",
+        "report/realestate_contract_report.xml"
     ],
     "license": "LGPL-3",
     "installable": True,

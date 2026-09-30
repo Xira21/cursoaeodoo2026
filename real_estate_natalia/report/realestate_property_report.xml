@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_realestate_property" model="report.paperformat">
+        <field name="name">Real Estate Property A4</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">25</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">100</field>
+    </record>
+
+
+    <record id="action_report_realestate_property" model="ir.actions.report">
+        <field name="name">Property</field>
+        <field name="model">realestate.property</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_natalia.report_realestate_property</field>
+        <field name="report_file">real_estate_natalia.report_realestate_property</field>
+        <field name="print_report_name">object.reference</field>
+        <!-- <field name="print_report_name">'Property - %s' % object.name</field> -->
+        <field name="binding_model_id" ref="model_realestate_property"/>
+        <field name="paperformat_id" ref="paperformat_realestate_property"/>
+        <field name="binding_type">report</field>        
+    </record>
+
+    <template id="report_realestate_property">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- 1. Cabecera con el nombre -->
+                        <h2 t-field="doc.name"/>
+
+                        <!-- 1b. Fila con referencia, categoría, etapa, precio y responsable -->
+                        <div class="row mt-4 mb-4">
+                            <div class="col">
+                                <strong>Reference</strong>
+                                <div t-field="doc.reference"/>
+                            </div>
+                            <div class="col">
+                                <strong>Category</strong>
+                                <div t-field="doc.category_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Stage</strong>
+                                <div t-field="doc.stage_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Price</strong>
+                                <div t-field="doc.price"/>
+                            </div>
+                            <div class="col">
+                                <strong>Responsible</strong>
+                                <div t-field="doc.user_id"/>
+                            </div>
+                        </div>
+
+                        <!-- 2. Descripción -->
+                        <div t-if="doc.description" class="mb-4">
+                            <h4>Description</h4>
+                            <p t-field="doc.description"/>
+                        </div>
+
+                        <!-- 3. Imágenes: una fila por imagen (miniatura + nombre) -->
+                        <div t-if="doc.image_ids" class="mb-4">
+                            <h4>Images</h4>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 120px;">Image</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="doc.image_ids" t-as="img">
+                                        <td>
+                                            <img t-if="img.image"
+                                                 t-att-src="image_data_uri(img.image)"
+                                                 style="max-height: 80px; max-width: 100px;"/>
+                                        </td>
+                                        <td><span t-field="img.name"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 4. Visitas: tabla, o aviso si no hay -->
+                        <h4>Visits</h4>
+                        <table t-if="doc.visit_ids" class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Visitor</th>
+                                    <th>Phone</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.visit_ids.sorted('date')" t-as="visit">
+                                    <td><span t-field="visit.date"/></td>
+                                    <td><span t-field="visit.partner_id"/></td>
+                                    <td><span t-field="visit.phone"/></td>
+                                    <td><span t-field="visit.state"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div t-else="" class="alert alert-info">
+                            This property has no visits.
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
