@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 11:41+0000\n"
-"PO-Revision-Date: 2026-09-29 11:41+0000\n"
+"POT-Creation-Date: 2026-09-30 10:26+0000\n"
+"PO-Revision-Date: 2026-09-30 10:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,9 +32,23 @@ msgid "Accepted"
 msgstr "Aceptado"
 
 #. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_category__active
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__amount
 msgid "Amount"
 msgstr "Importe"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_category_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_category_search_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_search_view
+msgid "Archived"
+msgstr "Archivado"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__availability
@@ -53,6 +67,8 @@ msgstr "Comprador"
 
 #. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_contract_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_change_stage_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_confirmed_visits_view_form
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_form_view
 msgid "Cancel"
 msgstr "Cancelar"
@@ -93,11 +109,28 @@ msgid "Category Name"
 msgstr "Nombre de la categoría"
 
 #. module: real_estate_natalia
+#: model:ir.actions.act_window,name:real_estate_natalia.realestate_property_change_stage_action
+#: model:ir.model,name:real_estate_natalia.model_realestate_property_change_stage
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_change_stage_form_view
+msgid "Change Property Stage"
+msgstr "Cambiar etapa de la propiedad"
+
+#. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_change_stage_form_view
+msgid "Change Stage"
+msgstr "Cambiar etapa"
+
+#. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__color
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__color
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__color
 msgid "Color"
 msgstr "Color"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__company_id
+msgid "Company"
+msgstr "Compañía"
 
 #. module: real_estate_natalia
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_form_view
@@ -109,6 +142,17 @@ msgstr "Confirmar"
 #: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_visit_search_view
 msgid "Confirmed"
 msgstr "Confirmado"
+
+#. module: real_estate_natalia
+#: model:ir.model,name:real_estate_natalia.model_realestate_property_confirmed_visits
+msgid "Confirmed Property Visits"
+msgstr "Visitas confirmadas de la propiedad"
+
+#. module: real_estate_natalia
+#: model:ir.actions.act_window,name:real_estate_natalia.realestate_property_confirmed_visits_action
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_confirmed_visits_view_form
+msgid "Confirmed Visits"
+msgstr "Visitas confirmadas"
 
 #. module: real_estate_natalia
 #: model:ir.model,name:real_estate_natalia.model_realestate_contract
@@ -148,6 +192,11 @@ msgid "Create Visit"
 msgstr "Crear visita"
 
 #. module: real_estate_natalia
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_confirmed_visits_view_form
+msgid "Create Visits"
+msgstr "Crear visitas"
+
+#. module: real_estate_natalia
 #: model_terms:ir.actions.act_window,help:real_estate_natalia.realestate_category_action
 msgid "Create a new category"
 msgstr "Crear una nueva categoría"
@@ -177,6 +226,8 @@ msgstr "Crear una nueva visita"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__create_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__create_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__create_uid
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__create_uid
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__create_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__create_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__create_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__create_uid
@@ -189,12 +240,21 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__create_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__create_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__create_date
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__create_date
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__create_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__create_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__create_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__create_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_visit__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__currency_id
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__currency_id
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__currency_id
+msgid "Currency"
+msgstr "Moneda"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__date
@@ -241,6 +301,8 @@ msgstr "Descripción"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__display_name
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__display_name
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__display_name
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__display_name
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__display_name
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__display_name
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__display_name
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__display_name
@@ -282,6 +344,7 @@ msgstr "Editar"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__end_date
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__end_date
 msgid "End Date"
 msgstr "Fecha de fin"
 
@@ -350,6 +413,8 @@ msgstr "Alta"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__id
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__id
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__id
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__id
@@ -392,10 +457,18 @@ msgid "Information"
 msgstr "Información"
 
 #. module: real_estate_natalia
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__internal_note
+#: model_terms:ir.ui.view,arch_db:real_estate_natalia.realestate_property_form_view
+msgid "Internal Note"
+msgstr "Nota interna"
+
+#. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_category__write_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__write_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__write_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__write_uid
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__write_uid
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__write_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__write_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__write_uid
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__write_uid
@@ -408,6 +481,8 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__write_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_offer__write_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__write_date
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__write_date
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__write_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_image__write_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_incident__write_date
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_stage__write_date
@@ -627,6 +702,7 @@ msgstr "Secuencia"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property__stage_id
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_change_stage__stage_id
 msgid "Stage"
 msgstr "Etapa"
 
@@ -642,6 +718,7 @@ msgstr "Iniciar"
 
 #. module: real_estate_natalia
 #: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_contract__start_date
+#: model:ir.model.fields,field_description:real_estate_natalia.field_realestate_property_confirmed_visits__start_date
 msgid "Start Date"
 msgstr "Fecha de inicio"
 

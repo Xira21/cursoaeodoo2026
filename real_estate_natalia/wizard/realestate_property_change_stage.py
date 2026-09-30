@@ -16,6 +16,7 @@ class RealEstatePropertyChangeStage(models.TransientModel):
         properties.write({'stage_id': self.stage_id.id})
         return{
             'type': 'ir.actions.act_window',
+            'name': 'Change Stage',
             'res_model': 'realestate.property',
             'view_mode': 'list,form',
             'domain': [('id', 'in', active_ids)],

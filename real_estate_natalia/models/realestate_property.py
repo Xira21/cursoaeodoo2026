@@ -61,7 +61,9 @@ class RealEstateProperty(models.Model):
 
     next_visit_date = fields.Datetime(
         string ="Next Visit Date",
-        compute="_compute_next_visit_date"
+        compute="_compute_next_visit_date",
+        inverse = "_inverse_next_visit_date",
+        store = True
     )
 
     color = fields.Integer(string="Color")
@@ -117,10 +119,7 @@ class RealEstateProperty(models.Model):
             'domain': [('property_id', '=', self.id)],
             'context': {'default_property_id': self.id}
         }
-    
-    
-
-
+      
 
     def action_reserve(self):
         self.availability = False
@@ -169,6 +168,14 @@ class RealEstateProperty(models.Model):
             )
             visit_dates = visits.mapped('date')
             record.next_visit_date = min(visit_dates) if visit_dates else False
+    
+    def _inverse_next_visit_date(self):
+        for record in self:
+            if record.next_visit_date:
+                confirmed_visits = record.visit_ids.filtered(
+                    lambda v: v.state == 'confirmed')
+                if confirmed_visits:
+                    confirmed_visits[0].date=record.next_visit_date
 
     # Botón que cancele todas las visitas en borrador o planificadas
     def action_cancel_visits(self):     

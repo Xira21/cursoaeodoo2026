@@ -31,9 +31,11 @@
         <field name="arch" type = "xml">
             <form string="Category">  
                 <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"></widget>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Category Name"></field>
+                            <field name="active" invisible="1"></field>
                         </h1>
                     </div>
                     <notebook>
@@ -45,4 +47,17 @@
             </form>
         </field>
     </record>
+
+    <record id="realestate_category_search_view" model="ir.ui.view">
+        <field name="name">realestate.category.search</field>
+        <field name="model">realestate.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="description"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', 'False')]"/>
+            </search>
+        </field>
+    </record>
+
 </odoo>
