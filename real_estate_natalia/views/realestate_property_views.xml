@@ -57,6 +57,9 @@
                   <button name="action_view_incidents" type="object" class="oe_stat_button" icon="fa-wrench">
                     <field name="incident_count" widget="statinfo" string="Incidents"></field>
                   </button>
+                  <button name="action_view_contracts" type="object" class="oe_stat_button" icon="fa-file-text">
+                    <field name="contract_count" widget="statinfo" string="Contracts"></field>
+                  </button>
                 </div>
                 <widget name="web_ribbon" title ="Reserved" invisible="availability or not active" bg_color="text-bg-warning"></widget>
                   <div class="oe_title">                

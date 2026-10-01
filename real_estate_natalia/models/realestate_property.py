@@ -58,6 +58,12 @@ class RealEstateProperty(models.Model):
         inverse_name = "property_id",
         string = "Offers"
     )
+    
+    contract_ids = fields.One2many(
+        comodel_name = "realestate.contract", 
+        inverse_name = "property_id", 
+        string = "Contracts"
+    )
 
     next_visit_date = fields.Datetime(
         string ="Next Visit Date",
@@ -82,6 +88,9 @@ class RealEstateProperty(models.Model):
         'The property reference must be unique.'
     )
 
+    # Hacer un smartbutton para que abra los contratos de esa propiedad
+    contract_count = fields.Integer(string = "Contract Count", compute="_compute_contract_count")
+
     # Hacer un smartbutton para que en la propiedad aparezcan las visitas asociadas a esa propiedad.
     visit_count = fields.Integer(string ="Visit Count", compute="_compute_visit_count")
 
@@ -92,6 +101,11 @@ class RealEstateProperty(models.Model):
     def _compute_visit_count(self):
         for record in  self:
             record.visit_count = len(record.visit_ids)
+
+    @api.depends('contract_ids')
+    def _compute_contract_count(self):
+        for record in self:
+            record.contract_count = len(record.contract_ids)
     
     def action_view_visits(self):
         self.ensure_one()
@@ -99,6 +113,17 @@ class RealEstateProperty(models.Model):
             'type': 'ir.actions.act_window',
             'name': 'Visits',
             'res_model': 'realestate.visit',
+            'view_mode': 'list,form',
+            'domain': [('property_id', '=', self.id)],
+            'context': {'default_property_id': self.id}
+        }
+
+    def action_view_contracts(self):
+        self.ensure_one()
+        return{
+            'type': 'ir.actions.act_window',
+            'name': 'Contracts',
+            'res_model': 'realestate.contract',
             'view_mode': 'list,form',
             'domain': [('property_id', '=', self.id)],
             'context': {'default_property_id': self.id}
