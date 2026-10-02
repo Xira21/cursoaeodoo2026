@@ -23,6 +23,7 @@
         <field name="reference" optional="show"></field>
         <field name="name" optional="show"></field>
         <field name="category_id" optional="show"/>
+        <field name="tag_ids" widget="many2many_tags" options="{'color_field':'color'}"></field>  
         <field name="description" optional="hide"/>
         <field name="price" widget="monetary" optional="show"></field>
         <field name="currency_id" invisible="1"></field>
@@ -70,7 +71,8 @@
                       <group>   
                         <group>                          
                           <field name="reference"></field>
-                          <field name="category_id"/>      
+                          <field name="category_id"/>  
+                          <field name="tag_ids" widget="many2many_tags" options="{'color_field':'color'}"></field>    
                           <field name="price" widget="monetary"></field> 
                           <field name="currency_id" invisible="1"></field>
                         </group>                   

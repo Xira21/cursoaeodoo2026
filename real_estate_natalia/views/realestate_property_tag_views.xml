@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="realestate_property_tag_action" model="ir.actions.act_window">
+        <field name="name">Property Tags</field>
+        <field name="res_model">realestate.property.tag</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class = "o_view_nocontent_smiling_face">
+                Create a new tag
+            </p>
+            <p>
+                Tags help you classify and filter your properties, for example: "Sea view", "Pool" or "Newly built".
+            </p>            
+        </field>
+    </record>
+
+    <record id="realestate_property_tag_list_view" model="ir.ui.view">
+        <field name="name">realestate.property.tag.list</field>
+        <field name="model">realestate.property.tag</field>
+        <field name="arch" type="xml">
+            <list string="Tags" editable="bottom" open_form_view="True"> 
+                <field name="name" optional="show"></field>
+                <field name="color" widget="color_picker" optional="show"></field>
+                <field name="property_ids" widget ="many2many_tags"></field>
+            </list>
+        </field>
+    </record>
+
+    <record id="realestate_property_tag_form_view" model="ir.ui.view">
+        <field name="name">realestate.property.tag.form</field>
+        <field name="model">realestate.property.tag</field>
+        <field name="arch" type="xml">
+            <form string="Tag">
+                <sheet>              
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Tag Name"></field>                   
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="color" widget="color_picker"></field>
+                        <field name="property_ids" widget ="many2many_tags"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

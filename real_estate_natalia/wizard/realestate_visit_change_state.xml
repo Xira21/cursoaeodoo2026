@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="realestate_visit_change_state" model="ir.actions.act_window">
+    <record id="realestate_visit_change_state_action" model="ir.actions.act_window">
         <field name="name">Change Visit State</field>
         <field name="res_model">realestate.visit.change.state</field>
         <field name="view_mode">form</field>

@@ -11,6 +11,7 @@
         "security/real_estate_security.xml",
         "security/ir.model.access.csv",
         "views/realestate_property_views.xml",
+        "views/realestate_property_tag_views.xml",
         "views/realestate_visit_views.xml",
         "views/realestate_category_views.xml",
         "views/realestate_offer_views.xml",

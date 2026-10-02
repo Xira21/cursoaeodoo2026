@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <menuitem id="realestate_menu_root" name="Real Estate"/>
+    <menuitem id="realestate_menu_root" name="Real Estate" web_icon="real_estate_natalia,static/description/icon_256.png"/>
     <menuitem
         id="realestate_menu_properties"
         name="Properties"
         parent="realestate_menu_root"
         action="realestate_property_action"/>
+
+    <menuitem
+        id="realestate_menu_tags"
+        name="Tags"
+        action="realestate_property_tag_action"
+        parent="realestate_menu_root"/>
 
     <menuitem
         id="realestate_menu_visits"

@@ -6,3 +6,4 @@ from . import realestate_category
 from . import realestate_offer
 from . import realestate_contract
 from . import realestate_property_stage
+from . import realestate_property_tag

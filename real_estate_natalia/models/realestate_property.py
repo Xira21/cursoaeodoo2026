@@ -28,6 +28,14 @@ class RealEstateProperty(models.Model):
         comodel_name="realestate.category",
         string="Category",
     )
+    
+    tag_ids= fields.Many2many(
+        comodel_name="realestate.property.tag",
+        string="Tags",
+        relation="realestate_property_realestate_property_tag_rel",
+        column1="realestate_property_id",
+        column2="realestate_property_tag_id"    
+    )
 
     stage_id = fields.Many2one(
         comodel_name ="realestate.property.stage",
