@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem 
+        id="music_school_menu_root" 
+        name="Music School" 
+        web_icon="music_school_natalia,static/description/icon.png"
+        sequence="10"/>
+
+    <menuitem
+        id="music_school_menu_student"
+        name="Students"
+        parent="music_school_menu_root"
+        action="music_school_student_action"
+        sequence="10"/>
+    
+    <menuitem
+        id="music_school_menu_instrument"
+        name="Instruments"
+        parent="music_school_menu_root"
+        action="music_school_instrument_action"
+        sequence="10"/>
+
+</odoo>

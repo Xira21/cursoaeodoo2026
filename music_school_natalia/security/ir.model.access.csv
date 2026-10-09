@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_music_school_student,access_music_school_student,model_music_school_student,base.group_user,1,1,1,1
+access_music_school_instrument,access_music_school_instrument,model_music_school_instrument,base.group_user,1,1,1,1
