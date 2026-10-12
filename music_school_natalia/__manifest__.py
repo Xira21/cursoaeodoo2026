@@ -7,10 +7,11 @@
     "category": "Music School",
     "depends": ['base'],
     "data": [
+        "security/music_school_security.xml",
         "security/ir.model.access.csv",
         "views/music_school_instrument_views.xml",
         "views/music_school_student_views.xml",
-        "views/music_school_menuitems.xml",
+        "views/music_school_menuitems.xml",        
     ],
     "license": "LGPL-3",
     "installable": True,

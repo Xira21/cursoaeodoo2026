@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+       <!-- # PRIMERO: Se crea la categoría -->
+    <record model="ir.module.category" id="module_category_music_school">
+        <field name="name">Music School</field>
+        <field name="sequence">10</field>   
+    </record>
+
+    <!-- # SEGUNDO: Se crean los privilegios -->
+    <record model="res.groups.privilege" id="res_groups_privilege_music_school">
+        <field name="name">Music School</field>
+        <field name="sequence">10</field>
+        <field name="category_id" ref="module_category_music_school"/>
+    </record> 
+
+    <!-- # TERCERO: Se crean los grupos  -->
+    <record model="res.groups" id="group_music_school_user">
+        <field name="name">User</field>
+        <field name="privilege_id" ref="res_groups_privilege_music_school"/>
+        <field name="comment">Music School User Group, The user will be able to read records</field>              
+    </record>    
+     <record model="res.groups" id="group_music_school_manager">
+        <field name="name">Manager</field>
+        <field name="privilege_id" ref="res_groups_privilege_music_school"/>         
+        <field name="implied_ids" eval="[(4, ref('group_music_school_user'))]"/>
+        <field name="comment">Music School Manager Group, The manager will be able to create, write and delete records</field>
+    </record>
+
+    <!-- # CUARTO: Se crean los reglas de registro (para decidir que ven unos usuarios u otros) -->
+    <record  model="ir.rule" id="music_school_rule_user">
+        <field name="name">Own Students</field>
+        <field name="model_id" ref="model_music_school_student"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_music_school_user'))]"/>          
+    </record>
+    <record  model="ir.rule" id="music_school_rule_manager">
+        <field name="name">All Students</field>
+        <field name="model_id" ref="model_music_school_student"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('group_music_school_manager'))]"/>          
+    </record> 
+    </data>
+
+</odoo>

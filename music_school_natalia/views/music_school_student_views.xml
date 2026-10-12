@@ -17,14 +17,51 @@
         <field name="name">music.school.student.list</field>
         <field name="model">music.school.student</field>
         <field name="arch" type="xml">
-            <list string="Students">
-                <field name="name"></field>
-                <field name="email"></field>
-                <field name="phone"></field>
-                <field name="birthdate"></field>
-                <field name="age"></field>
-                <field name="active"></field>
+            <list string="Students" multi_edit="1">
+                <field name="sequence" widget="handle"></field>
+                <field name="name" optional ="show"></field>
+                <field name="email" optional="show"></field>
+                <field name="phone" optional="show"></field>
+                <field name="registration_date" optional="show"></field>
+                <field name="user_id" widget="many2one_avatar_user" optional="hide"></field>
+                <field name="birthdate" optional="show"></field>
+                <field name="age" optional="show"></field>                
             </list>
+        </field>
+    </record>
+
+    <record id="music_school_student_form_view" model="ir.ui.view">
+        <field name="name">music.school.student.form</field>
+        <field name="model">music.school.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name ="name" placeholder="Student Name"></field>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="registration_date"/>
+                            <field name="user_id" widget ="many2one_avatar_user"/>
+                            <field name="birthdate"/>
+                            <field name="age"/>
+                        </group>                                         
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"/> 
+                        </page>
+                    </notebook>    
+                </sheet>
+            </form>
         </field>
     </record>
 
