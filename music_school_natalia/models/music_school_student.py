@@ -22,10 +22,19 @@ class MusicSchoolStudent(models.Model):
         default=lambda self:self.env.user.id        
     )
 
+    reference = fields.Char(
+        string="Reference", 
+        copy=False, 
+        readonly=True
+    )
 
-    
-    
+     
     # instrument_id = fields.Many2one(
     #     comodel_name="music.school.instrument",
     #     string="Instrument"
     # )
+
+    def generate_reference(self):
+        for record in self:
+            record.reference=record.reference="MAT-"+str(record.id)
+            

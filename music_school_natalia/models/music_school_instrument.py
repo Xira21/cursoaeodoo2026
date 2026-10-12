@@ -18,3 +18,8 @@ class MusicSchoolInstrument(models.Model):
     )
 
     description = fields.Text(string="Description")
+    inspection_date=fields.Date(string="Date Inspection")
+
+    def add_inspection_date(self):
+        for record in self:
+            record.inspection_date=fields.Date.context_today(record)

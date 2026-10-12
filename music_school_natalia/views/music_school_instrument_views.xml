@@ -21,6 +21,7 @@
                 <field name="name"></field>
                 <field name="family" optional="show"></field>
                 <field name="description" optional="hide"></field>                
+                <field name="inspection_date" optional="hide"></field>
             </list>
         </field>
     </record>
@@ -30,6 +31,9 @@
         <field name="model">music.school.instrument</field>
         <field name="arch" type="xml">
             <form string="Instrument">
+                <header>
+                    <button string="Add date inspection" name="add_inspection_date" type="object" class="btn-primary"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
@@ -37,6 +41,7 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="inspection_date"/>
                         <field name="family"/>                        
                     </group>
                     <notebook>
