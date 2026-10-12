@@ -13,4 +13,40 @@
         </field>    
     </record>
 
+    <record id="music_school_instrument_list_view" model="ir.ui.view">
+        <field name="name">music.school.instrument.list</field>
+        <field name="model">music.school.instrument</field>
+        <field name="arch" type="xml">
+            <list string="Instruments" multi_edit="1">                
+                <field name="name"></field>
+                <field name="family" optional="show"></field>
+                <field name="description" optional="hide"></field>                
+            </list>
+        </field>
+    </record>
+
+    <record id="music_school_instrument_form_view" model="ir.ui.view">
+        <field name="name">music.school.instrument.form</field>
+        <field name="model">music.school.instrument</field>
+        <field name="arch" type="xml">
+            <form string="Instrument">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Instrument"></field>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="family"/>                        
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 </odoo>
