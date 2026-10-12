@@ -17,9 +17,9 @@ class MusicSchoolStudent(models.Model):
 
     user_id = fields.Many2one(
         comodel_name="res.users",
-        string ="Responsible",
-        help="Responsible user for this student",
-        default=lambda self:self.env.user.id        
+        string = "Responsible",
+        help = "Responsible user for this student",
+        default = lambda self: self.env.user.id        
     )
 
     reference = fields.Char(
@@ -36,5 +36,5 @@ class MusicSchoolStudent(models.Model):
 
     def generate_reference(self):
         for record in self:
-            record.reference=record.reference="MAT-"+str(record.id)
+            record.reference=record.reference = "MAT-" + str(record.id)
             

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 17:49+0000\n"
-"PO-Revision-Date: 2026-10-12 17:49+0000\n"
+"POT-Creation-Date: 2026-10-12 20:32+0000\n"
+"PO-Revision-Date: 2026-10-12 20:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,9 +26,19 @@ msgid "Add date inspection"
 msgstr "Añadir fecha de revisión"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__notes
+msgid "Additional notes about the lesson"
+msgstr "Notas adicionales sobre la lección"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_student__notes
 msgid "Additional notes about the student."
 msgstr "Notas adicionales sobre el alumno."
+
+#. module: music_school_natalia
+#: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__level__advanced
+msgid "Advanced"
+msgstr "Avanzado"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__age
@@ -41,9 +51,45 @@ msgid "Archived"
 msgstr "Archivado"
 
 #. module: music_school_natalia
+#: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__level__beginner
+msgid "Beginner"
+msgstr "Iniciación"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__birthdate
 msgid "Birthdate"
 msgstr "Fecha de nacimiento"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__capacity
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__capacity
+msgid "Capacity"
+msgstr "Capacidad"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__course_id
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_list_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
+msgid "Course"
+msgstr "Curso"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__course_id
+msgid "Course associated with the lesson"
+msgstr "Curso al que pertenece la lección"
+
+#. module: music_school_natalia
+#: model:ir.actions.act_window,name:music_school_natalia.music_school_course_action
+#: model:ir.model,name:music_school_natalia.model_music_school_course
+#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_course
+msgid "Courses"
+msgstr "Curso"
+
+#. module: music_school_natalia
+#: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_course_action
+msgid "Create your first course"
+msgstr "Crea tu primer curso"
 
 #. module: music_school_natalia
 #: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_instrument_action
@@ -51,21 +97,49 @@ msgid "Create your first instrument"
 msgstr "Crea tu primer instrumento"
 
 #. module: music_school_natalia
+#: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_lesson_action
+msgid "Create your first lesson"
+msgstr "Crea tu primera lección"
+
+#. module: music_school_natalia
+#: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_room_action
+msgid "Create your first room"
+msgstr "Crea tu primera aula"
+
+#. module: music_school_natalia
 #: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_student_action
 msgid "Create your first student"
 msgstr "Crea tu primer alumno"
 
 #. module: music_school_natalia
+#: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_teacher_action
+msgid "Create your first teacher"
+msgstr "Crea tu primer profesor"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__create_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__create_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__create_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__create_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__create_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__create_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__date
+msgid "Date"
+msgstr "Fecha"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__inspection_date
@@ -73,16 +147,52 @@ msgid "Date Inspection"
 msgstr "Fecha de revisión"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__date
+msgid "Date and time when the lesson takes place"
+msgstr "Fecha y hora de la lección"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__end_date
+msgid "Date when the course ends"
+msgstr "Fecha de finalización del curso"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__start_date
+msgid "Date when the course starts"
+msgstr "Fecha de inicio del curso"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__description
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__description
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_instrument_form_view
 msgid "Description"
 msgstr "Descripción"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__display_name
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__display_name
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__display_name
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: music_school_natalia
+#: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__duration
+msgid "Duration"
+msgstr "Duración"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__duration
+msgid "Duration of the lesson in hours"
+msgstr "Duración de la lección en horas"
 
 #. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_instrument__family__electronic
@@ -91,8 +201,14 @@ msgstr "Electrónico"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__email
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__email
 msgid "Email"
 msgstr "Correo electrónico"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__end_date
+msgid "End Date"
+msgstr "Fecha de fin"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__family
@@ -100,20 +216,45 @@ msgid "Family"
 msgstr "Familia"
 
 #. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
+msgid "Finish"
+msgstr "Finalizar"
+
+#. module: music_school_natalia
+#: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__state__finished
+msgid "Finished"
+msgstr "Finalizado"
+
+#. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 msgid "Generate reference"
 msgstr "Generar matrícula"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__id
 msgid "ID"
 msgstr "ID"
 
 #. module: music_school_natalia
+#: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__state__progress
+msgid "In Progress"
+msgstr "En curso"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__instrument_id
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_instrument_form_view
 msgid "Instrument"
 msgstr "Instrumento"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__instrument_id
+msgid "Instrument associated with the course"
+msgstr "Instrumento del curso"
 
 #. module: music_school_natalia
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_instrument_action
@@ -124,26 +265,72 @@ msgid "Instruments"
 msgstr "Instrumentos"
 
 #. module: music_school_natalia
+#: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__level__intermediate
+msgid "Intermediate"
+msgstr "Intermedio"
+
+#. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_instrument__family__keyboard
 msgid "Keyboard"
 msgstr "Teclado"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__write_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__write_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__write_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__write_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__write_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__write_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_list_view
+msgid "Lesson"
+msgstr "Lección"
+
+#. module: music_school_natalia
+#: model:ir.actions.act_window,name:music_school_natalia.music_school_lesson_action
+#: model:ir.model,name:music_school_natalia.model_music_school_lesson
+#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_lesson
+msgid "Lessons"
+msgstr "Lección"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__level
+msgid "Level"
+msgstr "Nivel"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__location
+msgid "Location"
+msgstr "Ubicación"
 
 #. module: music_school_natalia
 #: model:res.groups,name:music_school_natalia.group_music_school_manager
 msgid "Manager"
 msgstr "Administrador"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__capacity
+msgid "Maximum number of students allowed in the course"
+msgstr "Número máximo de alumnos en el curso"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_room__capacity
+msgid "Maximum number of students that can fit in the room"
+msgstr "Número máximo de alumnos que caben en el aula"
 
 #. module: music_school_natalia
 #: model:ir.module.category,name:music_school_natalia.module_category_music_school
@@ -171,13 +358,18 @@ msgstr ""
 "crear registros"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__name
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__name
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__name
 msgid "Name"
 msgstr "Nombre"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__notes
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__notes
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 msgid "Notes"
 msgstr "Notas"
@@ -189,8 +381,14 @@ msgstr "Percusión"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__phone
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__phone
 msgid "Phone"
 msgstr "Teléfono"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_room__location
+msgid "Physical location of the room within the school"
+msgstr "Ubicación del aula dentro de la escuela"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__reference
@@ -213,9 +411,48 @@ msgid "Responsible user for this student"
 msgstr "Usuario responsable de este alumno"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__room_id
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_room_form_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_room_list_view
+msgid "Room"
+msgstr "Aula"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__room_id
+msgid "Room where the lesson takes place"
+msgstr "Aula donde se imparte la lección"
+
+#. module: music_school_natalia
+#: model:ir.actions.act_window,name:music_school_natalia.music_school_room_action
+#: model:ir.model,name:music_school_natalia.model_music_school_room
+#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_room
+msgid "Rooms"
+msgstr "Aula"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__sequence
 msgid "Sequence"
 msgstr "Secuencia"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
+msgid "Set to Draft"
+msgstr "Pasar a borrador"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
+msgid "Start"
+msgstr "Iniciar"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__state
+msgid "State"
+msgstr "Estado"
 
 #. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_instrument__family__string
@@ -239,6 +476,31 @@ msgstr "Nombre del alumno"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_list_view
 msgid "Students"
 msgstr "Alumnos"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__teacher_id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__teacher_id
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_teacher_form_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_teacher_list_view
+msgid "Teacher"
+msgstr "Profesor"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__teacher_id
+msgid "Teacher responsible for the course"
+msgstr "Profesor responsable del curso"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__teacher_id
+msgid "Teacher responsible for the lesson"
+msgstr "Profesor que imparte la lección"
+
+#. module: music_school_natalia
+#: model:ir.actions.act_window,name:music_school_natalia.music_school_teacher_action
+#: model:ir.model,name:music_school_natalia.model_music_school_teacher
+#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_teacher
+msgid "Teachers"
+msgstr "Profesor"
 
 #. module: music_school_natalia
 #: model:res.groups,name:music_school_natalia.group_music_school_user

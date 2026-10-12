@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_lesson_action" model="ir.actions.act_window">
+        <field name="name">Lessons</field>
+        <field name="res_model">music.school.lesson</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first lesson
+            </p>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_list_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.list</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <list string="Lesson" multi_edit="1">
+                <field name="date"/>
+                <field name="teacher_id"/>
+                <field name="course_id"/>
+                <field name="room_id"/>
+                <field name="duration" widget="float_time" optional="hide"/>
+                <field name="notes" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_form_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.form</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <form string="Lesson">
+                <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="course_id" placeholder="Course"/>
+                    </h1>
+                </div>
+                    <group>
+                        <group>
+                            <field name="teacher_id"></field>
+                            <field name="room_id"></field>
+                        </group>
+                        <group>
+                            <field name="date"></field>
+                            <field name="duration" widget="float_time"></field>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"></field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

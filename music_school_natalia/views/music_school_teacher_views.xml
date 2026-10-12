@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="music_school_teacher_action" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">music.school.teacher</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create your first teacher
+            </p>
+        </field>
+    </record>
+
+    <record id="music_school_teacher_list_view" model="ir.ui.view">
+        <field name="name">music.school.teacher.list</field>
+        <field name="model">music.school.teacher</field>
+        <field name="arch" type="xml">
+            <list string="Teacher" multi_edit="1">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="music_school_teacher_form_view" model="ir.ui.view">
+        <field name="name">music.school.teacher.form</field>
+        <field name="model">music.school.teacher</field>
+        <field name="arch" type="xml">
+            <form string="Teacher">
+                <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name" placeholder="Teacher"/>
+                    </h1>
+                </div>
+                    <group>                        
+                        <field name="email"/>
+                        <field name="phone"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

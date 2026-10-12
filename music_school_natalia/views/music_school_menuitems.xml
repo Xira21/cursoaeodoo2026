@@ -13,12 +13,40 @@
         parent="music_school_menu_root"
         action="music_school_student_action"
         sequence="10"/>
+
+    <menuitem
+        id="music_school_menu_teacher"
+        name="Teachers"
+        parent="music_school_menu_root"
+        action="music_school_teacher_action" 
+        sequence="20"/>
     
     <menuitem
         id="music_school_menu_instrument"
         name="Instruments"
         parent="music_school_menu_root"
         action="music_school_instrument_action"
-        sequence="10"/>
+        sequence="50"/>
+
+    <menuitem
+        id="music_school_menu_course"
+        name="Courses"
+        parent="music_school_menu_root"
+        action="music_school_course_action"
+        sequence="30"/>
+    
+    <menuitem
+        id="music_school_menu_lesson"
+        name="Lessons"
+        parent="music_school_menu_root"
+        action="music_school_lesson_action"
+        sequence="40"/>
+
+    <menuitem
+        id="music_school_menu_room"
+        name="Rooms"
+        parent="music_school_menu_root"
+        action="music_school_room_action"
+        sequence="60"/>    
 
 </odoo>

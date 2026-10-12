@@ -18,7 +18,7 @@ class MusicSchoolInstrument(models.Model):
     )
 
     description = fields.Text(string="Description")
-    inspection_date=fields.Date(string="Date Inspection")
+    inspection_date = fields.Date(string="Date Inspection")
 
     def add_inspection_date(self):
         for record in self:
