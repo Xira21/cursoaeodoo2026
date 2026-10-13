@@ -5,20 +5,14 @@ class MusicSchoolInstrument(models.Model):
     _description = "Instruments"
 
     name = fields.Char(string="Name", required=True)
-    family = fields.Selection(
-        selection=[
-            ('string', 'String'),
-            ('wind', 'Wind'),
-            ('percussion', 'Percussion'),
-            ('keyboard', 'Keyboard'),
-            ('electronic', 'Electronic'),
-        ],
-        string="Family",
-        required=True
-    )
-
     description = fields.Text(string="Description")
     inspection_date = fields.Date(string="Date Inspection")
+
+    family_id = fields.Many2one(
+        comodel_name="music.school.instrument.family",
+        string="Family",
+        help="Family of the instrument",
+    )
 
     def add_inspection_date(self):
         for record in self:

@@ -19,7 +19,7 @@
         <field name="arch" type="xml">
             <list string="Instruments" multi_edit="1">                
                 <field name="name"></field>
-                <field name="family" optional="show"></field>
+                <field name="family_id" optional="show"></field>
                 <field name="description" optional="hide"></field>                
                 <field name="inspection_date" optional="hide"></field>
             </list>
@@ -42,7 +42,7 @@
                     </div>
                     <group>
                         <field name="inspection_date"/>
-                        <field name="family"/>                        
+                        <field name="family_id"/>                        
                     </group>
                     <notebook>
                         <page string="Description">

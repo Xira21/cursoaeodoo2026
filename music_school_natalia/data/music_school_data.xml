@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+    
+    <record id="music_school_family_wind" model="music.school.instrument.family">
+        <field name="name">Wind</field>
+    </record>
+    <record id="music_school_family_string" model="music.school.instrument.family">
+        <field name="name">String</field>
+    </record>
+    <record id="music_school_family_percussion" model="music.school.instrument.family">
+        <field name="name">Percussion</field>
+    </record>
+    <record id="music_school_family_electronic" model="music.school.instrument.family">
+        <field name="name">Electronic</field>
+    </record>
+    <record id="music_school_family_keyboard" model="music.school.instrument.family">
+        <field name="name">Keyboard</field>
+    </record>
+
+    </data>
+
+</odoo>
