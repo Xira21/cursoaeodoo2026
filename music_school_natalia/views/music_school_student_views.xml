@@ -21,6 +21,7 @@
                 <field name="sequence" widget="handle"></field>
                 <field name="reference" optional="hide"/>
                 <field name="name" optional ="show"></field>
+                <field name="partner_id" optional="hide"></field>
                 <field name="email" optional="show"></field>
                 <field name="phone" optional="show"></field>
                 <field name="registration_date" optional="show"></field>
@@ -50,6 +51,7 @@
                         <group>
                             <field name="reference"/>
                             <field name="active" widget="boolean_toggle"/>
+                            <field name="partner_id"></field>
                             <field name="email"/>
                             <field name="phone"/>
                         </group>

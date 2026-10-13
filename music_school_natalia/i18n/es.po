@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 12:32+0000\n"
-"PO-Revision-Date: 2026-10-13 12:32+0000\n"
+"POT-Creation-Date: 2026-10-13 19:06+0000\n"
+"PO-Revision-Date: 2026-10-13 19:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -83,6 +83,11 @@ msgid "Archived"
 msgstr "Archivado"
 
 #. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
+msgid "Assign Students"
+msgstr "Asignar alumnos"
+
+#. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__level__beginner
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_teacher__level__beginner
 msgid "Beginner"
@@ -117,6 +122,11 @@ msgid "Color of the course card in kanban view"
 msgstr "Color de la tarjeta del curso en la vista kanban"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__partner_id
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__course_id
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_graph_view
@@ -140,6 +150,11 @@ msgstr "Curso al que pertenece la lección"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_calendar_view
 msgid "Courses"
 msgstr "Curso"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
+msgid "Create Lesson"
+msgstr "Crear lección"
 
 #. module: music_school_natalia
 #: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_course_action
@@ -262,6 +277,11 @@ msgid "Duration"
 msgstr "Duración"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__duration_days
+msgid "Duration Days"
+msgstr "Duración (días)"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__duration
 msgid "Duration of the lesson in hours"
 msgstr "Duración de la lección en horas"
@@ -360,6 +380,11 @@ msgstr "Familias de instrumentos"
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_teacher__level__intermediate
 msgid "Intermediate"
 msgstr "Intermedio"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__is_repaired
+msgid "Is Repaired"
+msgstr "Reparado"
 
 #. module: music_school_natalia
 #: model:music.school.instrument.family,name:music_school_natalia.music_school_family_keyboard
@@ -581,7 +606,9 @@ msgstr "Nombre del alumno"
 #. module: music_school_natalia
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_student_action
 #: model:ir.model,name:music_school_natalia.model_music_school_student
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__student_ids
 #: model:ir.ui.menu,name:music_school_natalia.music_school_menu_student
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_list_view
 msgid "Students"
 msgstr "Alumnos"

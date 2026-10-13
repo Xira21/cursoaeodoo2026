@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo import Command
 
 class MusicSchoolCourse(models.Model):
     _name = "music.school.course"
@@ -46,6 +47,32 @@ class MusicSchoolCourse(models.Model):
 
     color = fields.Integer(string="Color", help="Color of the course card in kanban view")
 
+    duration_days = fields.Integer(string="Duration Days", compute="_compute_duration_days", store=True)
+
+    student_ids = fields.Many2many(
+        comodel_name="music.school.student",
+        string="Students",
+        relation="music_school_course_music_school_student",
+        column1="music_school_course_id",
+        column2="music_school_student_id"
+    )
+
+    # Asignar alumnos al curso
+    def assign_students(self):
+        for record in self:
+            students = self.env['music.school.student'].search([], limit=record.capacity)
+            record.student_ids = [Command.link(a.id) for a in students]
+
+    # Crear lección
+    def create_lesson(self):
+        for record in self:
+            self.env['music.school.lesson'].create(
+                {
+                    'course_id': record.id,
+                    'teacher_id': record.teacher_id.id,
+                }
+            )
+
     def action_draft(self):
         for record in self:
             record.state = 'draft'
@@ -57,3 +84,16 @@ class MusicSchoolCourse(models.Model):
     def action_finish(self):
         for record in self:
             record.state = 'finished'
+            lessons = self.env['music.school.lesson'].search([('course_id','=',record.id), ('state', '!=', 'cancelled')])
+            lessons.write({'state': 'done'})
+
+
+    # Calcular la duracion del curso
+    @api.depends('start_date', 'end_date')
+    def _compute_duration_days(self):
+        for record in self:
+            if record.start_date and record.end_date and record.end_date > record.start_date:
+                record.duration_days = (record.end_date - record.start_date).days
+            else:
+                record.duration_days = 0
+                

@@ -20,7 +20,8 @@
             <list string="Instruments" multi_edit="1">                
                 <field name="name"></field>
                 <field name="family_id" optional="show"></field>
-                <field name="description" optional="hide"></field>                
+                <field name="description" optional="hide"></field> 
+                <field name="is_repaired" optional="hide"></field>               
                 <field name="inspection_date" optional="hide"></field>
             </list>
         </field>
@@ -42,6 +43,7 @@
                     </div>
                     <group>
                         <field name="inspection_date"/>
+                        <field name="is_repaired"></field>
                         <field name="family_id"/>                        
                     </group>
                     <notebook>
