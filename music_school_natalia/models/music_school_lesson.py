@@ -27,3 +27,16 @@ class MusicSchoolLesson(models.Model):
     date = fields.Datetime(string="Date", help="Date and time when the lesson takes place")
     duration = fields.Float(string="Duration", help="Duration of the lesson in hours")
     notes = fields.Text(string="Notes", help="Additional notes about the lesson")
+
+    state = fields.Selection(
+        selection=[
+            ('scheduled','Scheduled'),
+            ('done','Done'),
+            ('cancelled','Cancelled'),
+        ],
+        string="State",
+        default="scheduled",
+        group_expand=True,
+    )
+
+    color = fields.Integer(string="Color")

@@ -7,3 +7,13 @@ class MusicSchoolTeacher(models.Model):
     name = fields.Char(string="Name", required=True)
     email = fields.Char(string="Email")
     phone = fields.Char(string="Phone")
+
+    level = fields.Selection(
+        selection=[
+            ('beginner','Beginner'),
+            ('intermediate','Intermediate'),
+            ('advanced','Advanced'),
+        ],
+        string="Level",
+        default='beginner',
+    )

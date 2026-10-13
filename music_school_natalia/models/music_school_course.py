@@ -14,6 +14,7 @@ class MusicSchoolCourse(models.Model):
         ],
         string="State",
         default='draft',
+        group_expand=True,
     )
 
     teacher_id = fields.Many2one(
@@ -42,6 +43,8 @@ class MusicSchoolCourse(models.Model):
     end_date = fields.Date(string="End Date", help="Date when the course ends")
 
     capacity = fields.Integer(string="Capacity", help="Maximum number of students allowed in the course")
+
+    color = fields.Integer(string="Color", help="Color of the course card in kanban view")
 
     def action_draft(self):
         for record in self:

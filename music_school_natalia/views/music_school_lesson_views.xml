@@ -4,7 +4,7 @@
     <record id="music_school_lesson_action" model="ir.actions.act_window">
         <field name="name">Lessons</field>
         <field name="res_model">music.school.lesson</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">kanban,list,form,pivot,graph,calendar</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
@@ -23,6 +23,7 @@
                 <field name="teacher_id"/>
                 <field name="course_id"/>
                 <field name="room_id"/>
+                <field name="state"></field>
                 <field name="duration" widget="float_time" optional="hide"/>
                 <field name="notes" optional="hide"/>
             </list>
@@ -34,6 +35,9 @@
         <field name="model">music.school.lesson</field>
         <field name="arch" type="xml">
             <form string="Lesson">
+                <header>
+                    <field name="state" widget="statusbar"></field>
+                </header>
                 <sheet>
                 <div class="oe_title">
                     <h1>
@@ -57,6 +61,95 @@
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_search_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.search.view</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <search string="Lesson">
+                <field name="course_id"/>
+                <field name="teacher_id"/>
+                <field name="room_id"/>
+                <filter name="scheduled" string="Scheduled" domain="[('state', '=', 'scheduled')]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>        
+                <filter string="Cancelled" name="cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="group_by_course" string="Course" context="{'group_by': 'course_id'}"/>
+                <filter name="group_by_teacher" string="Teacher" context="{'group_by': 'teacher_id'}"/>
+                <filter name="group_by_room" string="Room" context="{'group_by': 'room_id'}"/>
+                <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_kanban_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.kanban</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <kanban highlight_color="color" default_group_by="state" class="o_kanban_small_column">
+                <templates>
+                    <t t-name="menu">
+                        <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Edit</a></t>
+                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                        <div role="separator" class="dropdown-divider"/>
+                        <field name="color" widget="kanban_color_picker"/>
+                    </t>
+                    <t t-name="card">
+                        <field name="course_id" class="fw-bold fs-5"></field>
+                        <div>
+                            <i class="fa fa-calendar me-1" title="Date"/>
+                            <field name="date"></field>
+                        </div>       
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-clock-o me-1" title="Duration"/>
+                            <field name="duration"  widget="float_time"></field>
+                        </div>       
+                        <div>
+                            <i class="fa fa-map-marker me-1" title="Room"/>
+                            <field name="room_id"></field>
+                        </div>    
+                        <footer>
+                            <i class="fa fa-user me-1" title="Teacher"/>
+                            <field name="teacher_id"></field>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_pivot_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.pivot</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <pivot string="Lesson">
+                <field name="teacher_id" type="row"></field>
+                <field name="date" type="col" interval="month"></field>
+                <field name="duration" type="measure" widget="float_time"></field>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_graph_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.graph.view</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <graph string="Lesson" type="bar">
+                <field name="teacher_id" type="row"></field>
+                <field name="duration" type="measure" widget="float_time"></field>
+            </graph>
+        </field>
+    </record>
+
+        <record id="music_school_lesson_calendar_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.calendar.view</field>
+        <field name="model">music.school.lesson</field>
+        <field name="arch" type="xml">
+            <calendar string="Lesson" date_start="date" date_delay="duration" mode="week" color="teacher_id">
+                <field name="course_id"></field>
+                <field name="room_id"></field>
+            </calendar>
         </field>
     </record>
 

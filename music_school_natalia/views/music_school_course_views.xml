@@ -4,7 +4,7 @@
     <record id="music_school_course_action" model="ir.actions.act_window">
         <field name="name">Courses</field>
         <field name="res_model">music.school.course</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">kanban,list,form,pivot,graph,calendar</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
@@ -51,9 +51,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="teacher_id"></field>
                             <field name="instrument_id"></field>
                             <field name="level"></field>
+                            <field name="teacher_id" domain="[('level','=',level)]"></field>
                         </group>
                         <group>
                             <field name="start_date"></field>
@@ -68,6 +68,88 @@
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="music_school_course_search_view" model="ir.ui.view">
+        <field name="name">music.school.course.search</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <search string="Course">
+                <field name="name" filter_domain="['|',('name','ilike',self),('description','ilike',self)]"/>
+                <field name="teacher_id"/>  
+                <field name="instrument_id" filter_domain="['|',('instrument_id.name','ilike',self),('instrument_id.description','ilike',self)]"/>              
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="In Progress" name="progress" domain="[('state','=','progress')]"/>
+                <filter string="Finished" name="finished" domain="[('state','=','finished')]"/>
+                <separator/>
+                <filter name="group_by_teacher" string="Teacher" context="{'group_by': 'teacher_id'}" />
+                <filter name="group_by_level" string="Level" context="{'group_by': 'level'}" />
+            </search>
+        </field>
+    </record>
+
+    <record id="music_school_course_kanban_view" model="ir.ui.view">
+        <field name="name">music.school.course.kanban</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <kanban highlight_color="color" on_create="quick_create" default_group_by="state" class="o_kanban_small_column">           
+                <templates>
+                    <t t-name="menu">
+                        <t t-if="widget.editable"><a role="menuitem" type="open" class="dropdown-item">Edit</a></t>
+                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                        <div role="separator" class="dropdown-divider"/>
+                        <field name="color" widget="kanban_color_picker"/>
+                    </t>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold fs-5"/>
+                        <div>
+                            <field name="start_date"/> -> <field name="end_date"/>
+                        </div>
+                        <div>
+                            <i class="fa fa-music me-1" title="Instrument"/>
+                            <field name="instrument_id"/>
+                        </div>
+                        <footer>
+                            <i class="fa fa-user me-1" title="Teacher"/>
+                            <field name="teacher_id"/>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="music_school_course_pivot_view" model="ir.ui.view">
+        <field name="name">music.school.course.pivot</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <pivot string="Course">
+                <field name="teacher_id" type="row"></field>
+                <field name="start_date" type="col"></field>
+                <field name="capacity" type="measure"></field>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="music_school_course_graph_view" model="ir.ui.view">
+        <field name="name">music.school.course.graph.view</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <graph string="Course" type="bar">
+                <field name="teacher_id" type="row"></field>
+                <field name="capacity" type="measure"></field>
+            </graph>
+        </field>
+    </record>
+
+    <record id="music_school_course_calendar_view" model="ir.ui.view">
+        <field name="name">music.school.course.calendar.view</field>
+        <field name="model">music.school.course</field>
+        <field name="arch" type="xml">
+            <calendar string="Courses" date_start="start_date" date_stop="end_date" mode="month" color="teacher_id">
+                <field name="name"></field>
+            </calendar>
         </field>
     </record>
 
