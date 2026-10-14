@@ -54,5 +54,12 @@
         name="Attendance"
         parent="music_school_menu_root"
         action="music_school_lesson_attendance_action"
-        sequence="70"/>   
+        sequence="70"/>
+
+    <menuitem
+        id="music_school_menu_exam"
+        name="Exams"
+        parent="music_school_menu_root"
+        action="music_school_exam_action"
+        sequence="80"/>      
 </odoo>
