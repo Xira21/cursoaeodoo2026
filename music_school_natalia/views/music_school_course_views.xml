@@ -40,7 +40,7 @@
             <form string="Course">
                 <header>
                     <button string="Assign Students" name="assign_students" type="object" class="btn-secondary" invisible="state =='finished'"/>
-                    <button string="Create Lesson" name="create_lesson" type="object" class="btn-secondary" invisible="state =='finished'"/>
+                    <button string="Create Lesson" name="create_lesson" type="object" class="btn-primary" invisible="state =='finished'"/>
                     <button string="Set to Draft" invisible="state =='draft'" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Start" invisible="state !='draft'" name="action_progress" type="object" class="btn-success"/>
                     <button string="Finish" invisible="state !='progress'" name="action_finish" type="object" class="btn-primary"/>
@@ -56,7 +56,7 @@
                         <group>
                             <field name="instrument_id"></field>
                             <field name="level"></field>
-                            <field name="teacher_id" domain="[('level','=',level)]"></field>
+                            <field name="teacher_id" domain="[('level','=',level)]" options="{'no_open': True, 'no_create': True}"></field>
                         </group>
                         <group>
                             <field name="start_date"></field>

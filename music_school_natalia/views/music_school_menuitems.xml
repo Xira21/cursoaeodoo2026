@@ -49,4 +49,10 @@
         action="music_school_room_action"
         sequence="60"/>    
 
+    <menuitem
+        id="music_school_menu_lesson_attendance"
+        name="Attendance"
+        parent="music_school_menu_root"
+        action="music_school_lesson_attendance_action"
+        sequence="70"/>   
 </odoo>

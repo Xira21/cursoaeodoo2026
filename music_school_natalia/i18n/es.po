@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 19:06+0000\n"
-"PO-Revision-Date: 2026-10-13 19:06+0000\n"
+"POT-Creation-Date: 2026-10-14 09:37+0000\n"
+"PO-Revision-Date: 2026-10-14 09:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -45,6 +45,11 @@ msgstr "<i class=\"fa fa-music me-1\" title=\"Instrumento\"/>"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_kanban_view
 msgid "<i class=\"fa fa-user me-1\" title=\"Teacher\"/>"
 msgstr "<i class=\"fa fa-user me-1\" title=\"Profesor\"/>"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
+msgid "Absent"
+msgstr "Ausente"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__active
@@ -86,6 +91,31 @@ msgstr "Archivado"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 msgid "Assign Students"
 msgstr "Asignar alumnos"
+
+#. module: music_school_natalia
+#: model:ir.actions.act_window,name:music_school_natalia.music_school_lesson_attendance_action
+#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_lesson_attendance
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_list_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: music_school_natalia
+#: model:ir.model,name:music_school_natalia.model_music_school_lesson_attendance
+msgid "Attendance for Music School Lessons"
+msgstr "Asistencia a las lecciones de la escuela de música"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__attendance_ids
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
+msgid "Attendances"
+msgstr "Asistencias"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__attended
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
+msgid "Attended"
+msgstr "Asistió"
 
 #. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__level__beginner
@@ -157,6 +187,11 @@ msgid "Create Lesson"
 msgstr "Crear lección"
 
 #. module: music_school_natalia
+#: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_lesson_attendance_action
+msgid "Create your first attendance"
+msgstr "Registra tu primera asistencia"
+
+#. module: music_school_natalia
 #: model_terms:ir.actions.act_window,help:music_school_natalia.music_school_course_action
 msgid "Create your first course"
 msgstr "Crea tu primer curso"
@@ -191,6 +226,7 @@ msgstr "Crea tu primer profesor"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__create_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__create_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__create_uid
@@ -202,6 +238,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__create_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__create_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__create_date
@@ -210,6 +247,8 @@ msgstr "Creado el"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__date
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_search_view
 msgid "Date"
 msgstr "Fecha"
@@ -253,6 +292,7 @@ msgstr "Descripción"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__display_name
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__display_name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__display_name
@@ -339,6 +379,7 @@ msgstr "Generar matrícula"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__id
@@ -396,6 +437,7 @@ msgstr "Teclado"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__write_uid
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__write_uid
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__write_uid
@@ -407,6 +449,7 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__write_date
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_room__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__write_date
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__write_date
@@ -414,6 +457,8 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__lesson_id
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_calendar_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_graph_view
@@ -563,6 +608,7 @@ msgid "Scheduled"
 msgstr "Programada"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__sequence
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__sequence
 msgid "Sequence"
 msgstr "Secuencia"
@@ -594,6 +640,8 @@ msgid "String"
 msgstr "Cuerda"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__student_id
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 msgid "Student"
 msgstr "Alumno"
@@ -602,6 +650,11 @@ msgstr "Alumno"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 msgid "Student Name"
 msgstr "Nombre del alumno"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson_attendance__student_id
+msgid "Student attending the lesson"
+msgstr "Alumno que asiste a la lección"
 
 #. module: music_school_natalia
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_student_action

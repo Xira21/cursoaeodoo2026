@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_lesson_attendance_action" model="ir.actions.act_window">
+        <field name="name">Attendance</field>
+        <field name="res_model">music.school.lesson.attendance</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first attendance
+            </p>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_attendance_list_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.attendance.list</field>
+        <field name="model">music.school.lesson.attendance</field>
+        <field name="arch" type="xml">
+            <list string="Attendance">
+                <field name="student_id"/>
+                <field name="lesson_id"/>
+                <field name="attended"  widget="boolean_toggle"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_attendance_search_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.attendance.search</field>
+        <field name="model">music.school.lesson.attendance</field>
+        <field name="arch" type="xml">
+            <search string="Attendance">
+                <field name="student_id"></field>
+                <field name="lesson_id"></field>                
+                <filter name="attended" string="Attended" domain="[('attended','=', True)]"/>
+                <filter name="absent" string="Absent" domain="[('attended', '=', False)]"/>
+                <separator/>
+                <filter name="group_by_student" string="Student" context="{'group_by': 'student_id'}"/>
+                <filter name="group_by_lesson" string="Lesson" context="{'group_by': 'lesson_id'}" />
+                <filter name="group_by_date" string="Date" context="{'group_by': 'date'}" />           
+            </search>
+        </field>
+    </record>
+
+</odoo>

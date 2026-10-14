@@ -58,6 +58,16 @@
                         <page string="Notes">
                             <field name="notes"></field>
                         </page>
+                        <page string="Attendances">
+                            <field name="attendance_ids" context="{'default_date': date}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"></field>
+                                    <field name="student_id"></field>
+                                    <field name="attended"></field>
+                                    <field name="date"></field>
+                                </list>
+                            </field>                            
+                        </page>
                     </notebook>
                 </sheet>
             </form>

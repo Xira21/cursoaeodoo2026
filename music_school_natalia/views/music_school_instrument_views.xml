@@ -44,7 +44,7 @@
                     <group>
                         <field name="inspection_date"/>
                         <field name="is_repaired"></field>
-                        <field name="family_id"/>                        
+                        <field name="family_id" options="{'no_create': True}"/>                        
                     </group>
                     <notebook>
                         <page string="Description">

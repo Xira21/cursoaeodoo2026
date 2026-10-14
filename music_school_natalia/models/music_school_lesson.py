@@ -40,3 +40,9 @@ class MusicSchoolLesson(models.Model):
     )
 
     color = fields.Integer(string="Color")
+
+    attendance_ids = fields.One2many(
+        comodel_name="music.school.lesson.attendance",
+        inverse_name="lesson_id",
+        string="Attendances",
+    )
