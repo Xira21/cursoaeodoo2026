@@ -7,6 +7,7 @@
     "category": "Music School",
     "depends": ['base'],
     "data": [
+        "data/ir_cron.xml",
         "data/music_school_data.xml",
         "security/music_school_security.xml",
         "security/ir.model.access.csv",

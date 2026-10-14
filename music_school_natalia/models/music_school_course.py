@@ -1,11 +1,14 @@
-from odoo import models, fields, api
-from odoo import Command
+from odoo import models, fields, api, Command, _
+from odoo.exceptions import ValidationError
 
 class MusicSchoolCourse(models.Model):
     _name = "music.school.course"
     _description = "Courses"
 
     name = fields.Char(string="Name", required=True)
+    # Restriccion con _sql_constraints
+    _name_unique=models.Constraint('UNIQUE(name)','The name must be unique.')
+
     description = fields.Text(string="Description")
     state = fields.Selection(
         selection=[
@@ -40,7 +43,8 @@ class MusicSchoolCourse(models.Model):
         default='beginner',
     )
 
-    start_date = fields.Date(string="Start Date", help="Date when the course starts")
+    start_date = fields.Date(string="Start Date", default=fields.Date.context_today)
+
     end_date = fields.Date(string="End Date", help="Date when the course ends")
 
     capacity = fields.Integer(string="Capacity", help="Maximum number of students allowed in the course")
@@ -56,6 +60,26 @@ class MusicSchoolCourse(models.Model):
         column1="music_school_course_id",
         column2="music_school_student_id"
     )
+
+    # Campo calculado para smartbutton de ver los examenes de ese curso.
+    exam_count = fields.Integer(string="Exams Count", compute="_compute_exam_count")
+
+    def _compute_exam_count(self):
+        for record in self:
+            record.exam_count = self.env['music.school.exam'].search_count([
+                ('course_id','=',record.id)
+            ])
+
+    def action_view_exams(self):
+        return{
+            'type': 'ir.actions.act_window',
+            'name': 'Exams',
+            'res_model': 'music.school.exam',
+            'view_mode': 'kanban,list,form',
+            'domain': [('course_id', '=', self.id)],
+            'context': {'default_course_id': self.id}
+        }
+
 
     # Asignar alumnos al curso
     def assign_students(self):
@@ -96,4 +120,13 @@ class MusicSchoolCourse(models.Model):
                 record.duration_days = (record.end_date - record.start_date).days
             else:
                 record.duration_days = 0
+
+    # Constrains -> capacidad no negativa
+    @api.constrains('capacity')
+    def _check_capacity(self):
+        for record in self:
+            if record.capacity and record.capacity < 0:
+                raise ValidationError(_("The capacity cannot be negative."))
+
+  
                 

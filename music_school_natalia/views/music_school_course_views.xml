@@ -47,6 +47,11 @@
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_exams" type="object" class="oe_stat_button" icon="fa-bookmark">
+                            <field name="exam_count" widget="statinfo" string="Exams"/>
+                        </button>                       
+                    </div>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Course"></field>

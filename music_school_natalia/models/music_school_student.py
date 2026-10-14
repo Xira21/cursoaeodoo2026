@@ -8,8 +8,8 @@ class MusicSchoolStudent(models.Model):
 
     active = fields.Boolean(string="Active", default=True)
     name = fields.Char(string="Name", required=True)
-    email = fields.Char(string="Email", related='partner_id.email', readonly=False)
-    phone = fields.Char(string="Phone", related='partner_id.phone', readonly=False)
+    email = fields.Char(string="Email")
+    phone = fields.Char(string="Phone")
     birthdate = fields.Date(string="Birthdate")
     age = fields.Integer(string="Age", compute="_compute_age")
     notes = fields.Html(string="Notes", help="Additional notes about the student.")
@@ -45,4 +45,14 @@ class MusicSchoolStudent(models.Model):
                 record.age=relativedelta(fields.Date.today(),record.birthdate).years
             else:
                 record.age=0
+
+    # Si cambia el contacto, se trae el telefono y el email
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.phone = self.partner_id.phone
+            self.email = self.partner_id.email
+        else:
+            self.phone = False
+            self.email = False
             

@@ -70,4 +70,11 @@ class MusicSchoolExam(models.Model):
                 for student in missing
             ]
 
+    def _cron_finish_exams(self):  
+        exams = self.env['music.school.exam'].search([
+            ('state','!=', 'finished'),
+            ('date', '<', fields.Datetime.now()),
+        ])  
+        exams.write({'state': 'finished'})
+
             
