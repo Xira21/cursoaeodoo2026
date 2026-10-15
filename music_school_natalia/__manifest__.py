@@ -22,7 +22,9 @@
         "views/music_school_lesson_attendance_views.xml",
         "views/music_school_exam_views.xml",
         "views/music_school_menuitems.xml",       
-        
+        "report/music_school_course_report.xml",
+        "report/music_school_course_simple_report.xml",
+        "report/music_school_lesson_report.xml",
     ],
     "license": "LGPL-3",
     "installable": True,

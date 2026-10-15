@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Formato de papel propio: A4 vertical con márgenes ajustados -->
+    <record id="paperformat_music_school_course" model="report.paperformat">
+        <field name="name">Music School Course</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Acción del informe: aparece en el menú Imprimir de los cursos -->
+    <record id="action_report_music_school_course" model="ir.actions.report">
+        <field name="name">Course</field>
+        <field name="model">music.school.course</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">music_school_natalia.report_music_school_course</field>
+        <field name="report_file">music_school_natalia.report_music_school_course</field>
+        <field name="print_report_name">'Course - %s' % (object.name or '')</field>
+        <field name="paperformat_id" ref="paperformat_music_school_course"/>
+        <field name="binding_model_id" ref="model_music_school_course"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Una página por curso: el t-foreach va FUERA del external_layout -->
+    <template id="report_music_school_course">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="doc.name"/>
+                        <div class="row mt-3">
+                            <div class="col-4">
+                                <strong>Teacher:</strong>
+                                <span t-field="doc.teacher_id"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>Start Date:</strong>
+                                <span t-field="doc.start_date"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>End Date:</strong>
+                                <span t-field="doc.end_date"/>
+                            </div>
+                        </div>
+                        <table class="table table-sm o_main_table mt-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Student</th>
+                                    <th class="text-start">Email</th>
+                                    <th class="text-start">Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.student_ids" t-as="student">
+                                    <td><span t-field="student.name"/></td>
+                                    <td><span t-field="student.email"/></td>
+                                    <td><span t-field="student.phone"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

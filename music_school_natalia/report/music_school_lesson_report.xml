@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_music_school_lesson" model="ir.actions.report">
+        <field name="name">Lesson Attendance</field>
+        <field name="model">music.school.lesson</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">music_school_natalia.report_music_school_lesson</field>
+        <field name="report_file">music_school_natalia.report_music_school_lesson</field>
+        <field name="print_report_name">'Attendance - %s' % (object.course_id.name or '')</field>
+        <field name="binding_model_id" ref="model_music_school_lesson"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Una página por lección con su tabla de asistencias -->
+    <template id="report_music_school_lesson">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="doc.course_id"/>
+                        <div class="row mt-3">
+                            <div class="col-4">
+                                <strong>Teacher:</strong>
+                                <span t-field="doc.teacher_id"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>Room:</strong>
+                                <span t-field="doc.room_id"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>Date:</strong>
+                                <span t-field="doc.date"/>
+                            </div>
+                        </div>
+                        <table class="table table-sm o_main_table mt-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Student</th>
+                                    <th class="text-end">Present</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.attendance_ids" t-as="attendance">
+                                    <td><span t-field="attendance.student_id"/></td>
+                                    <td class="text-end">
+                                        <t t-if="attendance.attended">Yes</t>
+                                        <t t-else="">No</t>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
