@@ -7,7 +7,7 @@ class MusicSchoolStudent(models.Model):
     _order = "sequence, name"
 
     active = fields.Boolean(string="Active", default=True)
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", copy=False)
     email = fields.Char(string="Email")
     phone = fields.Char(string="Phone")
     birthdate = fields.Date(string="Birthdate")
@@ -32,6 +32,7 @@ class MusicSchoolStudent(models.Model):
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Contact",
+        copy=False, 
     )
 
     def generate_reference(self):

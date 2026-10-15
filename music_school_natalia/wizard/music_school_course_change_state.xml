@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_change_state_action" model="ir.actions.act_window">
+        <field name="name">Change Course State</field>
+        <field name="res_model">music.school.course.change.state</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>        
+        <field name="binding_model_id" ref="music_school_natalia.model_music_school_course"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <record id="music_school_course_change_state_form_view" model="ir.ui.view">
+        <field name="name">music.school.course.change.state.form</field>
+        <field name="model">music.school.course.change.state</field>
+        <field name="arch" type="xml">
+            <form string="Change Course State">
+                <group>
+                    <field name="state"></field>    
+                </group>                    
+                <footer>
+                    <button string="Change State" name="action_change_state" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

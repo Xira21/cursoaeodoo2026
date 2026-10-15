@@ -11,6 +11,8 @@
         "data/music_school_data.xml",
         "security/music_school_security.xml",
         "security/ir.model.access.csv",
+        "wizard/music_school_course_change_state.xml",     
+        "wizard/music_school_lesson_batch.xml",   
         "views/music_school_instrument_views.xml",
         "views/music_school_student_views.xml",        
         "views/music_school_teacher_views.xml",
@@ -19,7 +21,8 @@
         "views/music_school_room_views.xml",
         "views/music_school_lesson_attendance_views.xml",
         "views/music_school_exam_views.xml",
-        "views/music_school_menuitems.xml",        
+        "views/music_school_menuitems.xml",       
+        
     ],
     "license": "LGPL-3",
     "installable": True,

@@ -5,11 +5,12 @@ class MusicSchoolCourse(models.Model):
     _name = "music.school.course"
     _description = "Courses"
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", copy=False)
     # Restriccion con _sql_constraints
     _name_unique = models.Constraint('UNIQUE(name)','The name must be unique.')
+    active = fields.Boolean(string="Active", default=True)
 
-    description = fields.Text(string="Description")
+    description = fields.Text(string="Description", company_dependent=True)
     state = fields.Selection(
         selection=[
             ('draft','Draft'),
@@ -59,6 +60,12 @@ class MusicSchoolCourse(models.Model):
         relation="music_school_course_music_school_student",
         column1="music_school_course_id",
         column2="music_school_student_id"
+    )
+
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        string="Company",
+        default=lambda self: self.env.company
     )
 
     # Campo calculado para smartbutton de ver los examenes de ese curso.

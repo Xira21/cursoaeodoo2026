@@ -37,7 +37,10 @@
         <field name="arch" type="xml">
             <form string="Exam">
                 <header>
-                    <button string="Generate Results" name="action_result" type="object" class="btn-primary"/>
+                    <button string="Generate Results" 
+                        name="action_result" 
+                        groups="music_school_natalia.group_music_school_manager"
+                        type="object" class="btn-primary"/>
                     <button string="Set to Draft" invisible="state =='draft'" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Schedule" invisible="state !='draft'" name="action_scheduled" type="object" class="btn-success"/>
                     <button string="Finish" invisible="state !='scheduled'" name="action_finish" type="object" class="btn-primary"/>

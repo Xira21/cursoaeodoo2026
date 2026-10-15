@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_lesson_batch_form_view" model="ir.ui.view">
+        <field name="name">music.school.lesson.batch.form</field>
+        <field name="model">music.school.lesson.batch</field>
+        <field name="arch" type="xml">
+            <form string="Create Lessons">
+                <group>
+                    <group>
+                        <field name="course_id" readonly="1"/>
+                        <field name="weekday"/>
+                        <field name="room_id" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="duration" widget="float_time"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Create Lessons" name="action_create_lessons" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="music_school_lesson_batch_action" model="ir.actions.act_window">
+        <field name="name">Create Lessons</field>
+        <field name="res_model">music.school.lesson.batch</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

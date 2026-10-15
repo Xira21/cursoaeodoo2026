@@ -25,6 +25,7 @@
                 <field name="teacher_id"/>
                 <field name="instrument_id"/>
                 <field name="level"/>
+                <field name="company_id"></field>
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="duration_days" optional="hide"></field>
@@ -39,14 +40,22 @@
         <field name="arch" type="xml">
             <form string="Course">
                 <header>
-                    <button string="Assign Students" name="assign_students" type="object" class="btn-secondary" invisible="state =='finished'"/>
+                    <button string="Assign Students" 
+                        name="assign_students"
+                        groups="music_school_natalia.group_music_school_manager" 
+                        type="object" class="btn-secondary" 
+                        invisible="state =='finished'"/>
                     <button string="Create Lesson" name="create_lesson" type="object" class="btn-primary" invisible="state =='finished'"/>
+                    <button string="Create Lessons" name="%(music_school_lesson_batch_action)d" type="action"
+                        class="btn-secondary" context="{'default_course_id': id}"
+                        invisible="state == 'finished'"/>
                     <button string="Set to Draft" invisible="state =='draft'" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Start" invisible="state !='draft'" name="action_progress" type="object" class="btn-success"/>
                     <button string="Finish" invisible="state !='progress'" name="action_finish" type="object" class="btn-primary"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_exams" type="object" class="oe_stat_button" icon="fa-bookmark">
                             <field name="exam_count" widget="statinfo" string="Exams"/>
@@ -62,6 +71,7 @@
                     </div>
                     <group>
                         <group>
+                            <field name="company_id"></field>
                             <field name="instrument_id"></field>
                             <field name="level"></field>
                             <field name="teacher_id" domain="[('level','=',level)]" options="{'no_open': True, 'no_create': True}"></field>
