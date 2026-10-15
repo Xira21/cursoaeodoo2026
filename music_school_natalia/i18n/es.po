@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 16:41+0000\n"
-"PO-Revision-Date: 2026-10-15 16:41+0000\n"
+"POT-Creation-Date: 2026-10-15 18:22+0000\n"
+"PO-Revision-Date: 2026-10-15 18:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,11 @@ msgstr "'Curso - %s' % (object.name or '')"
 #: model:ir.actions.report,print_report_name:music_school_natalia.action_report_music_school_course_simple
 msgid "'Course List'"
 msgstr "'Listado de cursos'"
+
+#. module: music_school_natalia
+#: model:ir.actions.report,print_report_name:music_school_natalia.action_report_music_school_exam
+msgid "'Exam Results - %s' % (object.name or '')"
+msgstr "'Resultados del examen - %s' % (object.name or '')"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_kanban_view
@@ -65,6 +70,12 @@ msgid "<i class=\"fa fa-user me-1\" title=\"Teacher\"/>"
 msgstr "<i class=\"fa fa-user me-1\" title=\"Profesor\"/>"
 
 #. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
+msgid "<strong>Course:</strong>"
+msgstr "<strong>Curso:</strong>"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_lesson
 msgid "<strong>Date:</strong>"
 msgstr "<strong>Fecha:</strong>"
@@ -73,6 +84,16 @@ msgstr "<strong>Fecha:</strong>"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_course
 msgid "<strong>End Date:</strong>"
 msgstr "<strong>Fecha de fin:</strong>"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
+msgid "<strong>Max score:</strong>"
+msgstr "<strong>Nota máxima:</strong>"
+
+#. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
+msgid "<strong>Min score:</strong>"
+msgstr "<strong>Nota mínima:</strong>"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_lesson
@@ -86,6 +107,7 @@ msgstr "<strong>Fecha de inicio:</strong>"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_course
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_lesson
 msgid "<strong>Teacher:</strong>"
 msgstr "<strong>Profesor:</strong>"
@@ -152,10 +174,18 @@ msgid "Attendance for Music School Lessons"
 msgstr "Asistencia a las lecciones de la escuela de música"
 
 #. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_student.py:0
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson__attendance_ids
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 msgid "Attendances"
 msgstr "Asistencias"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__attendance_count
+msgid "Attendances Count"
+msgstr "Número de asistencias"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_lesson_attendance__attended
@@ -263,10 +293,14 @@ msgid "Course associated with the lesson"
 msgstr "Curso al que pertenece la lección"
 
 #. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_teacher.py:0
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_course_action
 #: model:ir.model,name:music_school_natalia.model_music_school_course
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__course_count
 #: model:ir.ui.menu,name:music_school_natalia.music_school_menu_course
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_calendar_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_teacher_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_course_simple
 msgid "Courses"
 msgstr "Cursos"
@@ -495,6 +529,7 @@ msgid "Exam Name"
 msgstr "Nombre del examen"
 
 #. module: music_school_natalia
+#: model:ir.actions.report,name:music_school_natalia.action_report_music_school_exam
 #: model:ir.model,name:music_school_natalia.model_music_school_exam_result
 msgid "Exam Results"
 msgstr "Resultados de exámenes"
@@ -783,6 +818,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_lesson
 msgid "No"
 msgstr "No"
@@ -820,6 +856,7 @@ msgstr "Organización"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_exam_result__passed
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 msgid "Passed"
 msgstr "Aprobado"
 
@@ -911,6 +948,7 @@ msgstr "Programada"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_exam_result__score
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 msgid "Score"
 msgstr "Nota"
 
@@ -957,6 +995,7 @@ msgstr "Cuerda"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_attendance_search_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_course
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_lesson
 msgid "Student"
 msgstr "Alumno"
@@ -1080,6 +1119,7 @@ msgid "Wizard to create a batch of lessons"
 msgstr "Asistente para crear lecciones en bloque"
 
 #. module: music_school_natalia
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_lesson
 msgid "Yes"
 msgstr "Sí"
@@ -1095,3 +1135,15 @@ msgstr "course_id"
 #: code:addons/music_school_natalia/wizard/music_school_lesson_batch.py:0
 msgid "id"
 msgstr "id"
+
+#. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_student.py:0
+msgid "student_id"
+msgstr "student_id"
+
+#. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_teacher.py:0
+msgid "teacher_id"
+msgstr "teacher_id"

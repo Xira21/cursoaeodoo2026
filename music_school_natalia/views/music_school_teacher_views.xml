@@ -33,11 +33,16 @@
         <field name="arch" type="xml">
             <form string="Teacher">
                 <sheet>
-                <div class="oe_title">
-                    <h1>
-                        <field name="name" placeholder="Teacher"/>
-                    </h1>
-                </div>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_courses" type="object" class="oe_stat_button" icon="fa-graduation-cap">
+                            <field name="course_count" string="Courses" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Teacher"/>
+                        </h1>
+                    </div>
                     <group>        
                         <field name="level"></field>                
                         <field name="email"/>

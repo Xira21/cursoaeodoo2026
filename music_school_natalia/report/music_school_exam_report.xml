@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="action_report_music_school_exam" model="ir.actions.report">
+        <field name="name">Exam Results</field>
+        <field name="model">music.school.exam</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">music_school_natalia.report_music_school_exam</field>
+        <field name="report_file">music_school_natalia.report_music_school_exam</field>
+        <field name="print_report_name">'Exam Results - %s' % (object.name or '')</field>
+        <field name="binding_model_id" ref="model_music_school_exam"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Una página por examen con su tabla de resultados -->
+    <template id="report_music_school_exam">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field="doc.name"/>
+                        <div class="row mt-3">   
+                            <div class="col">
+                                <strong>Course:</strong>
+                                <span t-field="doc.course_id"/>
+                            </div>                       
+                            <div class="col">
+                                <strong>Teacher:</strong>
+                                <span t-field="doc.teacher_id"/>
+                            </div>
+                            <div class="col">
+                                <strong>Date:</strong>
+                                <span t-field="doc.date"/>
+                            </div>
+                            <div class="col">
+                                <strong>Min score:</strong>
+                                <span t-field="doc.min_score"/>
+                            </div>
+                            <div class="col">
+                                <strong>Max score:</strong>
+                                <span t-field="doc.max_score"/>
+                            </div>
+                        </div>
+                        <table class="table table-sm o_main_table mt-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-start">Student</th>
+                                    <th class="text-end">Score</th>
+                                    <th class="text-end">Passed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.result_ids" t-as="result">
+                                    <td><span t-field="result.student_id"/></td>
+                                    <td class="text-end"><span t-field="result.score"/></td>
+                                    <td class="text-end">
+                                        <span t-if="result.passed" class="text-success fw-bold">Yes</span>
+                                        <span t-else="" class="text-danger fw-bold">No</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>    
+
+</odoo>
+
+

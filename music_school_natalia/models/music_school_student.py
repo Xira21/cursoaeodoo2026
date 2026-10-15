@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from dateutil.relativedelta import relativedelta
 
 class MusicSchoolStudent(models.Model):
@@ -34,6 +34,25 @@ class MusicSchoolStudent(models.Model):
         string="Contact",
         copy=False, 
     )
+
+    # Campo calculado para smartbutton desde estudiante me lleve a sus asistecias
+    attendance_count = fields.Integer(string="Attendances Count", compute="_compute_attendance_count")
+
+    def _compute_attendance_count(self):
+        for record in self:
+            record.attendance_count = self.env['music.school.lesson.attendance'].search_count([
+                ('student_id','=', record.id)
+            ])
+
+    def action_view_attendances(self):
+        return{
+            'type': 'ir.actions.act_window',
+            'name': _('Attendances'),
+            'res_model': 'music.school.lesson.attendance',
+            'view_mode': 'list,form',
+            'domain': [('student_id', '=', self.id)],
+            'context': {'default_student_id': self.id}
+        }
 
     def generate_reference(self):
         for record in self:
