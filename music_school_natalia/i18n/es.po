@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 15:51+0000\n"
-"PO-Revision-Date: 2026-10-14 15:51+0000\n"
+"POT-Creation-Date: 2026-10-15 10:53+0000\n"
+"PO-Revision-Date: 2026-10-15 10:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -278,19 +278,9 @@ msgid "Date Inspection"
 msgstr "Fecha de revisión"
 
 #. module: music_school_natalia
-#: model:ir.model.fields,help:music_school_natalia.field_music_school_lesson__date
-msgid "Date and time when the lesson takes place"
-msgstr "Fecha y hora de la lección"
-
-#. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_course__end_date
 msgid "Date when the course ends"
 msgstr "Fecha de finalización del curso"
-
-#. module: music_school_natalia
-#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__start_date
-msgid "Date when the course starts"
-msgstr "Fecha de inicio del curso"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_kanban_view
@@ -323,6 +313,7 @@ msgstr "Nombre mostrado"
 
 #. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_lesson__state__done
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_search_view
 msgid "Done"
 msgstr "Realizada"
@@ -379,7 +370,6 @@ msgstr "Fecha de fin"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_exam_result__exam_id
-#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_exam
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_list_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_search_view
@@ -402,9 +392,18 @@ msgid "Exam Results"
 msgstr "Resultados de exámenes"
 
 #. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_course.py:0
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_exam_action
+#: model:ir.ui.menu,name:music_school_natalia.music_school_menu_exam
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 msgid "Exams"
 msgstr "Exámenes"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__exam_count
+msgid "Exams Count"
+msgstr "Número de exámenes"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__family_id
@@ -426,6 +425,7 @@ msgstr "Finalizar"
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_course__state__finished
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_exam__state__finished
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_search_view
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_search_view
 msgid "Finished"
 msgstr "Finalizado"
@@ -543,11 +543,19 @@ msgid "Lesson"
 msgstr "Lección"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__lesson_count
+msgid "Lesson Count"
+msgstr "Número de lecciones"
+
+#. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_course.py:0
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_lesson_action
 #: model:ir.model,name:music_school_natalia.model_music_school_lesson
 #: model:ir.ui.menu,name:music_school_natalia.music_school_menu_lesson
+#: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 msgid "Lessons"
-msgstr "Lección"
+msgstr "Lecciones"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__level
@@ -618,6 +626,16 @@ msgstr ""
 "crear registros"
 
 #. module: music_school_natalia
+#: model:ir.actions.server,name:music_school_natalia.music_school_course_cron_ir_actions_server
+msgid "Music School: finish past courses"
+msgstr "Escuela de música: finalizar cursos pasados"
+
+#. module: music_school_natalia
+#: model:ir.actions.server,name:music_school_natalia.music_school_exam_cron_ir_actions_server
+msgid "Music School: finish past exams"
+msgstr "Escuela de música: finalizar exámenes pasados"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__name
@@ -629,7 +647,7 @@ msgstr "Nombre"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_search_view
-msgid "No Finished"
+msgid "Not Finished"
 msgstr "No finalizados"
 
 #. module: music_school_natalia
@@ -817,6 +835,28 @@ msgid "Teachers"
 msgstr "Profesor"
 
 #. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_course.py:0
+msgid "The capacity cannot be negative."
+msgstr "La capacidad no puede ser negativa."
+
+#. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_course.py:0
+msgid "The end date cannot be before start date"
+msgstr "La fecha de fin no puede ser anterior a la fecha de inicio"
+
+#. module: music_school_natalia
+#: model:ir.model.constraint,message:music_school_natalia.constraint_music_school_course_name_unique
+msgid "The name must be unique."
+msgstr "El nombre debe ser único."
+
+#. module: music_school_natalia
+#: model:ir.model.constraint,message:music_school_natalia.constraint_music_school_room_name_unique
+msgid "The room name must be unique."
+msgstr "El nombre del aula debe ser único."
+
+#. module: music_school_natalia
 #: model:res.groups,name:music_school_natalia.group_music_school_user
 msgid "User"
 msgstr "Usuario"
@@ -825,3 +865,9 @@ msgstr "Usuario"
 #: model:music.school.instrument.family,name:music_school_natalia.music_school_family_wind
 msgid "Wind"
 msgstr "Viento"
+
+#. module: music_school_natalia
+#. odoo-python
+#: code:addons/music_school_natalia/models/music_school_course.py:0
+msgid "course_id"
+msgstr "course_id"

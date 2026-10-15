@@ -7,7 +7,7 @@ class MusicSchoolCourse(models.Model):
 
     name = fields.Char(string="Name", required=True)
     # Restriccion con _sql_constraints
-    _name_unique=models.Constraint('UNIQUE(name)','The name must be unique.')
+    _name_unique = models.Constraint('UNIQUE(name)','The name must be unique.')
 
     description = fields.Text(string="Description")
     state = fields.Selection(
@@ -64,18 +64,37 @@ class MusicSchoolCourse(models.Model):
     # Campo calculado para smartbutton de ver los examenes de ese curso.
     exam_count = fields.Integer(string="Exams Count", compute="_compute_exam_count")
 
+    # Campo calculado para smartbutton de ver las lecciones asociadas.
+    lesson_count = fields.Integer(string="Lesson Count", compute="_compute_lesson_count")
+
     def _compute_exam_count(self):
         for record in self:
             record.exam_count = self.env['music.school.exam'].search_count([
-                ('course_id','=',record.id)
+                ('course_id','=', record.id)
+            ])
+
+    def _compute_lesson_count(self):
+        for record in self:
+            record.lesson_count = self.env['music.school.lesson'].search_count([
+                ('course_id', '=', record.id)
             ])
 
     def action_view_exams(self):
         return{
             'type': 'ir.actions.act_window',
-            'name': 'Exams',
+            'name': _('Exams'),
             'res_model': 'music.school.exam',
             'view_mode': 'kanban,list,form',
+            'domain': [('course_id', '=', self.id)],
+            'context': {'default_course_id': self.id}
+        }
+
+    def action_view_lessons(self):
+        return{
+            'type': 'ir.actions.act_window',
+            'name': _('Lessons'),
+            'res_model': 'music.school.lesson',
+            'view_mode': 'kanban,list,form,pivot,graph,calendar',
             'domain': [('course_id', '=', self.id)],
             'context': {'default_course_id': self.id}
         }
@@ -128,5 +147,19 @@ class MusicSchoolCourse(models.Model):
             if record.capacity and record.capacity < 0:
                 raise ValidationError(_("The capacity cannot be negative."))
 
+    # Constrains -> fecha fin no puede ser anterior a la de inicio
+    @api.constrains('start_date', 'end_date')
+    def _check_end_date(self):
+        for record in self:
+            if record.start_date and record.end_date and record.end_date < record.start_date:
+                raise ValidationError(_("The end date cannot be before start date"))
+            
+    # Metodo para el cron
+    def _cron_finished_courses(self):
+        courses = self.env['music.school.course'].search([
+            ('state', '!=', 'finished'),
+            ('end_date', '<', fields.Date.context_today(self)),
+        ])
+        courses.action_finish()
   
                 

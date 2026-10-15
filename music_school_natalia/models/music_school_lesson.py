@@ -24,7 +24,7 @@ class MusicSchoolLesson(models.Model):
         help="Room where the lesson takes place"
     )
 
-    date = fields.Datetime(string="Date", help="Date and time when the lesson takes place")
+    date = fields.Datetime(string="Date", default=fields.Datetime.now)
     duration = fields.Float(string="Duration", help="Duration of the lesson in hours")
     notes = fields.Text(string="Notes", help="Additional notes about the lesson")
 

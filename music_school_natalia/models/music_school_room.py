@@ -13,3 +13,6 @@ class MusicSchoolRoom(models.Model):
         string="Location",
         help="Physical location of the room within the school"
     )
+
+    # _sql_constrains nombre habitación que sea unico
+    _name_unique = models.Constraint('unique(name)','The room name must be unique.')
