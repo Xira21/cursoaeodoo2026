@@ -46,4 +46,22 @@ class MusicSchoolCourse(models.Model):
         self.order_ids.action_cancel()
         return res
 
+    # Botón de confirmar la venta y facturar el pedido asociado
+    def action_confirm_and_invoice(self):
+        for record in self:
+            # 1. Confirmar los presupuestos
+            draft_orders = record.order_ids.filtered(lambda o: o.state in ('draft', 'sent'))
+            draft_orders.action_confirm()
+
+            # 2. Facturar lo pendiente
+            to_invoice = record.order_ids.filtered(lambda o: o.invoice_status == 'to invoice')
+            if to_invoice:
+                to_invoice._create_invoices()
+                
+            # 3. Publicar las facturas en borrador
+            draft_invoices = record.order_ids.invoice_ids.filtered(lambda i: i.state == 'draft')
+            draft_invoices.action_post()
+
+
+
                             
