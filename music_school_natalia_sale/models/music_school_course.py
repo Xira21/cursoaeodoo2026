@@ -39,5 +39,11 @@ class MusicSchoolCourse(models.Model):
                         'product_uom_qty': 1,
                     })]
                 })                                                             
-                                            
+
+    # Botón de cancelar el curso HEREDADO
+    def action_cancel(self):
+        res = super().action_cancel()
+        self.order_ids.action_cancel()
+        return res
+
                             

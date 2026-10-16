@@ -9,6 +9,7 @@ class MusicSchoolCourseChangeState(models.TransientModel):
             ('draft','Draft'),
             ('progress','In Progress'),
             ('finished','Finished'),
+            ('cancelled','Cancelled')
         ],
         string="State",
         required=True,

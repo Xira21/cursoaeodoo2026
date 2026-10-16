@@ -45,15 +45,17 @@
                         name="assign_students"
                         groups="music_school_natalia.group_music_school_manager" 
                         type="object" class="btn-secondary" 
-                        invisible="state =='finished'"/>
-                    <button string="Create Lesson" name="create_lesson" type="object" class="btn-primary" invisible="state =='finished'"/>
+                        invisible="state in ('finished', 'cancelled')"/>
+                    <button string="Create Lesson" name="create_lesson" type="object" class="btn-primary" invisible="state in ('finished', 'cancelled')"/>
                     <button string="Create Lessons" name="%(music_school_lesson_batch_action)d" type="action"
                         class="btn-secondary" context="{'default_course_id': id}"
-                        invisible="state == 'finished'"/>
+                        invisible="state in ('finished', 'cancelled')"/>
                     <button string="Set to Draft" invisible="state =='draft'" name="action_draft" type="object" class="btn-secondary"/>
                     <button string="Start" invisible="state !='draft'" name="action_progress" type="object" class="btn-success"/>
                     <button string="Finish" invisible="state !='progress'" name="action_finish" type="object" class="btn-primary"/>
-                    <field name="state" widget="statusbar"/>
+                    <button string="Cancel" name="action_cancel" type="object" class="btn-secondary"
+                        invisible="state in ('finished', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,progress,finished"/>
                 </header>
                 <sheet>
                     <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
@@ -109,6 +111,7 @@
                 <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
                 <filter string="In Progress" name="progress" domain="[('state','=','progress')]"/>
                 <filter string="Finished" name="finished" domain="[('state','=','finished')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
                 <separator/>
                 <filter name="group_by_teacher" string="Teacher" context="{'group_by': 'teacher_id'}" />
                 <filter name="group_by_level" string="Level" context="{'group_by': 'level'}" />

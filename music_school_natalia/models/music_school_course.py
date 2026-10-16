@@ -16,6 +16,7 @@ class MusicSchoolCourse(models.Model):
             ('draft','Draft'),
             ('progress','In Progress'),
             ('finished','Finished'),
+            ('cancelled','Cancelled'),
         ],
         string="State",
         default='draft',
@@ -139,6 +140,10 @@ class MusicSchoolCourse(models.Model):
             lessons = self.env['music.school.lesson'].search([('course_id','=',record.id), ('state', '!=', 'cancelled')])
             lessons.write({'state': 'done'})
 
+    def action_cancel(self):
+        for record in self:
+            record.state = 'cancelled'
+
 
     # Calcular la duracion del curso
     @api.depends('start_date', 'end_date')
@@ -166,7 +171,7 @@ class MusicSchoolCourse(models.Model):
     # Metodo para el cron
     def _cron_finished_courses(self):
         courses = self.env['music.school.course'].search([
-            ('state', '!=', 'finished'),
+            ('state', '=', 'progress'),
             ('end_date', '<', fields.Date.context_today(self)),
         ])
         courses.action_finish()

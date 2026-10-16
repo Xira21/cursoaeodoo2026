@@ -5,11 +5,15 @@ class MusicSchoolStudent(models.Model):
     _name = "music.school.student"
     _description = "Students"
     _order = "sequence, name"
+    _inherits = {'res.partner': 'partner_id'}
 
     active = fields.Boolean(string="Active", default=True)
-    name = fields.Char(string="Name", copy=False)
-    email = fields.Char(string="Email")
-    phone = fields.Char(string="Phone")
+
+    # No hace falta porque ya lo hereda de res.partner
+    # name = fields.Char(string="Name", copy=False)
+    # email = fields.Char(string="Email")
+    # phone = fields.Char(string="Phone")
+
     birthdate = fields.Date(string="Birthdate")
     age = fields.Integer(string="Age", compute="_compute_age")
     notes = fields.Html(string="Notes", help="Additional notes about the student.")
@@ -32,7 +36,8 @@ class MusicSchoolStudent(models.Model):
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Contact",
-        copy=False, 
+        required=True,
+        ondelete="cascade",
     )
 
     # Campo calculado para smartbutton desde estudiante me lleve a sus asistecias
@@ -66,13 +71,14 @@ class MusicSchoolStudent(models.Model):
             else:
                 record.age=0
 
+    # Con la herencia, ya no hace falta este método por eso lo dejo comentado
     # Si cambia el contacto, se trae el telefono y el email
-    @api.onchange('partner_id')
-    def _onchange_partner_id(self):
-        if self.partner_id:
-            self.phone = self.partner_id.phone
-            self.email = self.partner_id.email
-        else:
-            self.phone = False
-            self.email = False
+    # @api.onchange('partner_id')
+    # def _onchange_partner_id(self):
+    #     if self.partner_id:
+    #         self.phone = self.partner_id.phone
+    #         self.email = self.partner_id.email
+    #     else:
+    #         self.phone = False
+    #         self.email = False
             

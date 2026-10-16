@@ -9,7 +9,7 @@
 
             <button name="create_lesson" position="after">
                 <button string="Create Orders" name="action_create_orders" type="object" class="btn-secondary"
-                    invisible="state == 'finished'"/>
+                    invisible="state in ('finished', 'cancelled')"/>
             </button>
             <field name="capacity" position="after"> 
                 <field name="product_id"/>               
