@@ -84,10 +84,10 @@
                         </group>                        
                     </group>
                     <notebook>
-                        <page string="Description">
+                        <page name="description" string="Description">
                             <field name="description"></field>
                         </page>
-                        <page string="Students">
+                        <page name="students" string="Students">
                             <field name="student_ids"></field>
                         </page>
                     </notebook>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="music_school_course_form_view_inherit_sale" model="ir.ui.view">
+        <field name="name">music.school.course.form.inherit.sale</field>
+        <field name="model">music.school.course</field>
+        <field name="inherit_id" ref="music_school_natalia.music_school_course_form_view"/>
+        <field name="arch" type="xml">
+
+            <field name="capacity" position="after"> 
+                <field name="product_id"/>               
+                <field name="price"/>
+            </field>
+
+            <page name="students"  position="after">
+                <page name="orders" string="Orders">
+                    <field name="order_ids"></field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+
+</odoo>
