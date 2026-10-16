@@ -7,6 +7,10 @@
         <field name="inherit_id" ref="music_school_natalia.music_school_course_form_view"/>
         <field name="arch" type="xml">
 
+            <button name="create_lesson" position="after">
+                <button string="Create Orders" name="action_create_orders" type="object" class="btn-secondary"
+                    invisible="state == 'finished'"/>
+            </button>
             <field name="capacity" position="after"> 
                 <field name="product_id"/>               
                 <field name="price"/>
