@@ -3,10 +3,11 @@ from odoo import models, fields, _
 class MusicSchoolTeacher(models.Model):
     _name = "music.school.teacher"
     _description = "Teachers"
+    _inherits = {'res.partner': 'partner_id'}
 
-    name = fields.Char(string="Name", required=True)
-    email = fields.Char(string="Email")
-    phone = fields.Char(string="Phone")
+    # name = fields.Char(string="Name", required=True)
+    # email = fields.Char(string="Email")
+    # phone = fields.Char(string="Phone")
 
     level = fields.Selection(
         selection=[
@@ -16,6 +17,13 @@ class MusicSchoolTeacher(models.Model):
         ],
         string="Level",
         default='beginner',
+    )
+
+    partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Contact",
+        required=True,
+        ondelete="cascade",
     )
 
     # Smartbutton desde profesor nos lleve a los cursos que imparte

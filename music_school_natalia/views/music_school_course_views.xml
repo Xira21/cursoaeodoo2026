@@ -141,8 +141,8 @@
                             <field name="instrument_id"/>
                         </div>
                         <footer>
-                            <i class="fa fa-user me-1" title="Teacher"/>
-                            <field name="teacher_id"/>
+                            <!-- <i class="fa fa-user me-1" title="Teacher"/> -->
+                            <field name="teacher_id" widget="many2one_avatar"/>
                         </footer>
                     </t>
                 </templates>

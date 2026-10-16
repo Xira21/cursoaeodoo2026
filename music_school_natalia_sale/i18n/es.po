@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* music_school_natalia_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-16 16:37+0000\n"
+"PO-Revision-Date: 2026-10-16 16:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: music_school_natalia_sale
+#: model_terms:ir.ui.view,arch_db:music_school_natalia_sale.music_school_course_form_view_inherit_sale
+msgid "Confirm & Invoice"
+msgstr "Confirmar y facturar"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_sale_order__course_id
+#: model_terms:ir.ui.view,arch_db:music_school_natalia_sale.sale_order_form_view_inherit_sale
+msgid "Course"
+msgstr "Curso"
+
+#. module: music_school_natalia_sale
+#: model:ir.model,name:music_school_natalia_sale.model_music_school_course
+msgid "Courses"
+msgstr "Cursos"
+
+#. module: music_school_natalia_sale
+#: model_terms:ir.ui.view,arch_db:music_school_natalia_sale.music_school_course_form_view_inherit_sale
+msgid "Create Orders"
+msgstr "Crear pedidos"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__display_name
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__id
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_sale_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__order_ids
+#: model_terms:ir.ui.view,arch_db:music_school_natalia_sale.music_school_course_form_view_inherit_sale
+msgid "Orders"
+msgstr "Pedidos"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__price
+msgid "Price"
+msgstr "Precio"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: music_school_natalia_sale
+#: model:ir.model,name:music_school_natalia_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: music_school_natalia_sale
+#. odoo-python
+#: code:addons/music_school_natalia_sale/models/music_school_course.py:0
+msgid "Set a product on the course before creating orders."
+msgstr "Asigna un producto al curso antes de crear los pedidos."
