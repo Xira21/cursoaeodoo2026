@@ -9,6 +9,7 @@
     "data": [
         "data/ir_cron.xml",
         "data/music_school_data.xml",
+        "data/ir_sequence.xml",
         "security/music_school_security.xml",
         "security/ir.model.access.csv",
         "wizard/music_school_course_change_state.xml",     

@@ -68,6 +68,8 @@ class MusicSchoolCourse(models.Model):
         default=lambda self: self.env.company
     )
 
+    code = fields.Char(string="Code", readonly=True, copy=False)
+
     # Campo calculado para smartbutton de ver los examenes de ese curso.
     exam_count = fields.Integer(string="Exams Count", compute="_compute_exam_count")
 
@@ -168,5 +170,11 @@ class MusicSchoolCourse(models.Model):
             ('end_date', '<', fields.Date.context_today(self)),
         ])
         courses.action_finish()
-  
-                
+
+    # Heredar el Metodo crear añadiendo una secuencia a los cursos
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get('code'):
+                vals['code'] = self.env['ir.sequence'].next_by_code('music.school.course')
+        return super().create(vals_list)
