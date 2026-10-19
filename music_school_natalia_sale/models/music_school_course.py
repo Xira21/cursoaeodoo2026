@@ -9,7 +9,8 @@ class MusicSchoolCourse(models.Model):
         string="Product",
     )
 
-    price = fields.Float(string="Price")
+    # tracking=True: cada cambio de precio queda anotado en el chatter del curso
+    price = fields.Float(string="Price", tracking=True)
 
     order_ids = fields.One2many(
         comodel_name="sale.order",

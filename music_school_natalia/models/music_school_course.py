@@ -4,6 +4,8 @@ from odoo.exceptions import ValidationError
 class MusicSchoolCourse(models.Model):
     _name = "music.school.course"
     _description = "Courses"
+    # Mixins de mail: chatter (mensajes, seguidores) y actividades
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string="Name", copy=False)
     # Restriccion con _sql_constraints
@@ -21,6 +23,7 @@ class MusicSchoolCourse(models.Model):
         string="State",
         default='draft',
         group_expand=True,
+        tracking=True,
     )
 
     teacher_id = fields.Many2one(

@@ -117,6 +117,13 @@ msgid "Absent"
 msgstr "Ausente"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_needaction
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_needaction
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__active
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__active
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__active
@@ -128,6 +135,34 @@ msgstr "Activo"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__active_lang_count
 msgid "Active Lang Count"
 msgstr "Número de idiomas activos"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_exception_decoration
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_exception_decoration
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de Actividad de Excepción"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_state
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_state
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_state
+msgid "Activity State"
+msgstr "Estado de la actividad"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_type_icon
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_type_icon
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_instrument_form_view
@@ -192,6 +227,13 @@ msgstr "Archivado"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 msgid "Assign Students"
 msgstr "Asignar alumnos"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_attachment_count
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_attachment_count
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de archivos adjuntos"
 
 #. module: music_school_natalia
 #: model:ir.actions.act_window,name:music_school_natalia.music_school_lesson_attendance_action
@@ -280,6 +322,18 @@ msgid "Birthdate"
 msgstr "Fecha de nacimiento"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__is_blacklisted
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__is_blacklisted
+msgid "Blacklist"
+msgstr "Lista negra"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_bounce
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_bounce
+msgid "Bounce"
+msgstr "Rebotado"
+
+#. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_change_state_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_lesson_batch_form_view
@@ -312,6 +366,18 @@ msgstr "Cambiar estado del curso"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_change_state_form_view
 msgid "Change State"
 msgstr "Cambiar estado"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__channel_member_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__channel_member_ids
+msgid "Channel Member"
+msgstr "Miembro del canal"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__channel_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__channel_ids
+msgid "Channels"
+msgstr "Canales"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_student__is_company
@@ -434,6 +500,13 @@ msgstr "Configuración"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__partner_id
 msgid "Contact"
 msgstr "Contacto"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__message_bounce
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__message_bounce
+msgid "Counter of the number of bounced emails for this contact"
+msgstr ""
+"Contador del número de correos electrónicos rebotados de este contacto"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__country_id
@@ -774,6 +847,27 @@ msgid "Finished"
 msgstr "Finalizado"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_follower_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_follower_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_partner_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_partner_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__activity_type_icon
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__activity_type_icon
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font Awesome p. ej. fa-tasks"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_student__email_formatted
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__email_formatted
 msgid "Format email address \"Name <email@domain>\""
@@ -813,6 +907,13 @@ msgid "Geo Longitude"
 msgstr "Longitud geográfica"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__has_message
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__has_message
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__has_message
+msgid "Has Message"
+msgstr "Tiene un mensaje"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course_change_state__id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_exam__id
@@ -827,6 +928,50 @@ msgstr "Longitud geográfica"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__id
 msgid "ID"
 msgstr "ID"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__im_status
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__im_status
+msgid "IM Status"
+msgstr "Estado de mensajería instantanea"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_exception_icon
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_exception_icon
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__activity_exception_icon
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__activity_exception_icon
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__message_needaction
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__message_needaction
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcada, hay nuevos mensajes que requieren su atención."
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__message_has_error
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__message_has_error
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcada, algunos mensajes tienen error de envío."
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__is_blacklisted
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__is_blacklisted
+msgid ""
+"If the email address is on the blacklist, the contact won't receive mass "
+"mailing anymore, from any list"
+msgstr ""
+"Si la dirección de correo electrónico está en la lista negra, el contacto ya"
+" no recibirá más envíos masivos desde ninguna lista"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__image_1920
@@ -872,6 +1017,12 @@ msgid "Industry"
 msgstr "Sector"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__contact_address_inline
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__contact_address_inline
+msgid "Inlined Complete Address"
+msgstr "Dirección completa Inline"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__instrument_id
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_exam__instrument_id
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_instrument_form_view
@@ -902,6 +1053,19 @@ msgstr "Familias de instrumentos"
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_teacher__level__intermediate
 msgid "Intermediate"
 msgstr "Intermedio"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_is_follower
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_is_follower
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__is_in_call
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__is_in_call
+msgid "Is In Call"
+msgstr "Está en una llamada"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__is_public
@@ -1047,6 +1211,20 @@ msgid "Members"
 msgstr "Miembros"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_has_error
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_has_error
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de envío de mensaje"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_exam__min_score
 msgid "Min Score"
 msgstr "Nota mínima"
@@ -1097,6 +1275,13 @@ msgid "Music School: finish past exams"
 msgstr "Escuela de música: finalizar exámenes pasados"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__my_activity_date_deadline
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__my_activity_date_deadline
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument__name
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_instrument_family__name
@@ -1105,6 +1290,27 @@ msgstr "Escuela de música: finalizar exámenes pasados"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_date_deadline
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_date_deadline
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite de la siguiente actividad"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_summary
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_summary
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_type_id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_type_id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de la siguiente actividad"
 
 #. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.report_music_school_exam
@@ -1126,6 +1332,12 @@ msgid "No lessons will be created after this date"
 msgstr "No se crearán lecciones después de esta fecha"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__email_normalized
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__email_normalized
+msgid "Normalized Email"
+msgstr "Correo electrónico normalizado"
+
+#. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_exam_search_view
 msgid "Not Finished"
 msgstr "No finalizados"
@@ -1139,6 +1351,40 @@ msgstr "No finalizados"
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_student_form_view
 msgid "Notes"
 msgstr "Notas"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_needaction_counter
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_needaction_counter
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__message_has_error_counter
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__message_has_error_counter
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__message_needaction_counter
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__message_needaction_counter
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__message_has_error_counter
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__message_has_error_counter
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__offline_since
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__offline_since
+msgid "Offline since"
+msgstr "Desconectado desde"
 
 #. module: music_school_natalia
 #: model:ir.ui.menu,name:music_school_natalia.music_school_organization
@@ -1227,6 +1473,13 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_course__activity_user_id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__activity_user_id
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_student__user_id
 msgid "Responsible user for this student"
 msgstr "Usuario responsable de este alumno"
@@ -1257,6 +1510,12 @@ msgstr "Aula donde se imparte la lección"
 #: model:ir.ui.menu,name:music_school_natalia.music_school_menu_room
 msgid "Rooms"
 msgstr "Aulas"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__rtc_session_ids
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__rtc_session_ids
+msgid "Rtc Session"
+msgstr "Sesión de comunicación en tiempo real"
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__user_id
@@ -1311,6 +1570,12 @@ msgid "Share Partner"
 msgstr "Compartir contacto"
 
 #. module: music_school_natalia
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__signup_type
+#: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__signup_type
+msgid "Signup Token Type"
+msgstr "Tipo de token de registro"
+
+#. module: music_school_natalia
 #: model_terms:ir.ui.view,arch_db:music_school_natalia.music_school_course_form_view
 msgid "Start"
 msgstr "Iniciar"
@@ -1337,6 +1602,21 @@ msgstr "Estado"
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_teacher__application_statistics
 msgid "Stats"
 msgstr "Estadísticas"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__activity_state
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__activity_state
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado según las actividades\n"
+"Vencida: la fecha límite ya ha pasado\n"
+"Hoy: la fecha límite es hoy\n"
+"Planificada: actividades futuras."
 
 #. module: music_school_natalia
 #: model:ir.model.fields,field_description:music_school_natalia.field_music_school_student__street
@@ -1503,6 +1783,17 @@ msgstr ""
 "necesita un único usuario, este campo intenta encontrar el más apropiado."
 
 #. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__email_normalized
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__email_normalized
+msgid ""
+"This field is used to search on email address as the primary email field can"
+" contain more than strictly an email address."
+msgstr ""
+"Este campo se utiliza para buscar en la dirección de correo electrónico, ya "
+"que el campo de correo electrónico principal puede contener más de una "
+"dirección de correo electrónico."
+
+#. module: music_school_natalia
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_lesson_batch__weekday__3
 msgid "Thursday"
 msgstr "Jueves"
@@ -1523,6 +1814,13 @@ msgstr "Compensación de zona horaria"
 #: model:ir.model.fields.selection,name:music_school_natalia.selection__music_school_lesson_batch__weekday__1
 msgid "Tuesday"
 msgstr "Martes"
+
+#. module: music_school_natalia
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_course__activity_exception_decoration
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_student__activity_exception_decoration
+#: model:ir.model.fields,help:music_school_natalia.field_music_school_teacher__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción en el registro."
 
 #. module: music_school_natalia
 #: model:ir.model.fields,help:music_school_natalia.field_music_school_student__barcode

@@ -38,15 +38,23 @@ msgstr "Crear pedidos"
 
 #. module: music_school_natalia_sale
 #: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__display_name
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_product_template__display_name
 #: model:ir.model.fields,field_description:music_school_natalia_sale.field_sale_order__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: music_school_natalia_sale
 #: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__id
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_product_template__id
 #: model:ir.model.fields,field_description:music_school_natalia_sale.field_sale_order__id
 msgid "ID"
 msgstr "ID"
+
+#. module: music_school_natalia_sale
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_product_product__is_course
+#: model:ir.model.fields,field_description:music_school_natalia_sale.field_product_template__is_course
+msgid "Is a Course"
+msgstr "Es un curso"
 
 #. module: music_school_natalia_sale
 #: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__order_ids
@@ -60,6 +68,7 @@ msgid "Price"
 msgstr "Precio"
 
 #. module: music_school_natalia_sale
+#: model:ir.model,name:music_school_natalia_sale.model_product_template
 #: model:ir.model.fields,field_description:music_school_natalia_sale.field_music_school_course__product_id
 msgid "Product"
 msgstr "Producto"

@@ -5,7 +5,7 @@
     "description": "Manages a music school with students, teachers, and classes.",
     "author": "Natalia",
     "category": "Music School",
-    "depends": ['base'],
+    "depends": ['base', 'mail'],
     "data": [
         "data/ir_cron.xml",
         "data/music_school_data.xml",
